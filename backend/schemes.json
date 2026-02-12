@@ -4,6 +4,7 @@
         "name": "PM Kisan Samman Nidhi",
         "tag": "Agriculture",
         "url": "https://pmkisan.gov.in/",
+        "state": "Central",
         "details": {
             "Benefit": "₹6,000 per year in 3 equal installments.",
             "Eligibility": "Landholding farmer families with cultivable land.",
@@ -15,6 +16,7 @@
         "name": "Rythu Bharosa (Rythu Bandhu)",
         "tag": "Agriculture",
         "url": "https://prajapalana.telangana.gov.in/",
+        "state": "Telangana",
         "details": {
             "Benefit": "₹1,250 per month directly to bank account (Example benefit, confirm official details).",
             "Eligibility": "Farmers with land ownership.",
@@ -26,6 +28,7 @@
         "name": "Pradhan Mantri Awas Yojana (PMAY)",
         "tag": "Housing",
         "url": "https://pmaymis.gov.in/",
+        "state": "Central",
         "details": {
             "Benefit": "Subsidy for building/purchasing affordable houses (up to ₹2.67 Lakh).",
             "Eligibility": "Families with no pucca house."
@@ -36,6 +39,7 @@
         "name": "Ayushman Bharat (PM-JAY)",
         "tag": "Healthcare",
         "url": "https://pmjay.gov.in/",
+        "state": "Central",
         "details": {
             "Benefit": "Health cover of ₹5 Lakh per family per year for secondary/tertiary care.",
             "Eligibility": "Low-income families found in the SECC database."
@@ -46,6 +50,7 @@
         "name": "National Scholarship Portal (NSP)",
         "tag": "Education",
         "url": "https://scholarships.gov.in/",
+        "state": "Central",
         "details": {
             "Benefit": "Financial assistance for education fees and maintenance allowance.",
             "Eligibility": "Students with family income < ₹2.5 Lakh per year (varies by specific scheme)."
@@ -56,9 +61,32 @@
         "name": "PM Vishwakarma Yojana",
         "tag": "Skill Development",
         "url": "https://pmvishwakarma.gov.in/",
+        "state": "Central",
         "details": {
             "Benefit": "Collateral-free loans up to ₹3 Lakh at 5% interest, tool kit incentive, and skill training.",
             "Eligibility": "Artisans and craftspeople (18+ years) working with hands/tools."
+        }
+    },
+    {
+        "id": 7,
+        "name": "YSR Rythu Bharosa",
+        "tag": "Agriculture",
+        "url": "https://ysrrythubharosa.ap.gov.in/",
+        "state": "Andhra Pradesh",
+        "details": {
+            "Benefit": "Financial assistance of ₹13,500 per year to farmer families.",
+            "Eligibility": "Land owning farmer families and SC/ST/BC/Minority tenant farmers."
+        }
+    },
+    {
+        "id": 8,
+        "name": "Gruha Lakshmi",
+        "tag": "Social Welfare",
+        "url": "https://sevasindhu.karnataka.gov.in/",
+        "state": "Karnataka",
+        "details": {
+            "Benefit": "₹2,000 monthly assistance to the woman head of the family.",
+            "Eligibility": "Woman head of family in Antyodaya/BPL/APL cards."
         }
     }
 ]

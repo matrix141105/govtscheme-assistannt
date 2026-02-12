@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Search, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
+import { useStateContext } from "@/context/StateContext";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface Scheme {
@@ -9,6 +10,7 @@ interface Scheme {
     name: string;
     tag: string;
     url: string;
+    state: string;
     details: Record<string, string>;
 }
 
@@ -35,10 +37,23 @@ export function SearchSchemes() {
         }
     };
 
+    const { selectedState } = useStateContext();
+
     const filteredSchemes = schemes.filter(
-        (s) =>
-            s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            s.tag.toLowerCase().includes(searchTerm.toLowerCase())
+        (s) => {
+            // Text Search Filter
+            const matchesSearch = s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                s.tag.toLowerCase().includes(searchTerm.toLowerCase());
+
+            // State/Region Filter
+            // If All India => Show only "Central"
+            // If Specific State => Show "Central" OR "State Name"
+            const matchesState = selectedState === "All India"
+                ? s.state === "Central"
+                : (s.state === "Central" || s.state === selectedState);
+
+            return matchesSearch && matchesState;
+        }
     );
 
     return (
@@ -47,7 +62,7 @@ export function SearchSchemes() {
 
                 {/* Header */}
                 <div className="space-y-2">
-                    <h2 className="text-2xl font-display font-bold text-foreground">Find Government Schemes</h2>
+                    <h2 className="text-2xl font-display font-bold text-foreground">Find Government Schemes ({selectedState})</h2>
                     <p className="text-muted-foreground">Search and explore various government initiatives tailored for you.</p>
                 </div>
 
@@ -95,6 +110,9 @@ export function SearchSchemes() {
                                 <div>
                                     <div className="flex items-start justify-between mb-2">
                                         <h3 className="font-display font-bold text-lg text-foreground">{scheme.name}</h3>
+                                        <span className={`text-[10px] font-medium px-2.5 py-1 rounded-full uppercase tracking-wide ${scheme.state === "Central" ? "bg-blue-100 text-blue-700" : "bg-orange-100 text-orange-700"}`}>
+                                            {scheme.state === "Central" ? "Central" : scheme.state}
+                                        </span>
                                         <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary uppercase tracking-wide">
                                             {scheme.tag}
                                         </span>

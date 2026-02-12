@@ -262,7 +262,7 @@ export function ChatArea() {
                   </div>
                 )}
                 <div
-                  className={`max-w-[85%] px-5 py-4 rounded-2xl text-[15px] leading-7 shadow-sm whitespace-pre-wrap ${msg.sender === "user"
+                  className={`select-text max-w-[85%] px-5 py-4 rounded-2xl text-[15px] leading-7 shadow-sm whitespace-pre-wrap ${msg.sender === "user"
                     ? "bg-chat-user text-chat-user-foreground rounded-br-md"
                     : "bg-chat-bot text-chat-bot-foreground rounded-bl-md"
                     }`}

@@ -25,6 +25,8 @@ export async function apiFetch(endpoint: string, options: FetchOptions = {}) {
     // Let's standardise: the consumer should pass "/profiles", and we prepend API_BASE_URL
     const url = `${API_BASE_URL}${endpoint}`;
 
+    console.log(`🔥 [API DEBUG] Requesting: ${url}`);
+
     while (attempt <= retries) {
         try {
             const response = await fetch(url, fetchOptions);

@@ -40,7 +40,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
     queryKey: ["profiles"],
     queryFn: async () => {
       if (!token) return [];
-      const res = await fetch(`${API_BASE_URL}/api/profiles`, {
+      const res = await apiFetch("/api/profiles", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) return [];

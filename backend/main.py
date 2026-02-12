@@ -42,20 +42,9 @@ with open("startup_log.txt", "a") as f:
     f.write("Backend server started/reloaded (Groq Version).\n")
 
 # CORS (Allows your React Frontend to talk to this Backend)
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:5174",
-    "http://127.0.0.1:5174",
-    "*"
-]
-
-if os.getenv("FRONTEND_URL"):
-    origins.append(os.getenv("FRONTEND_URL"))
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

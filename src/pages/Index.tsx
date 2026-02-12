@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AppSidebar } from "@/components/AppSidebar";
 import { ChatArea } from "@/components/ChatArea";
 import { InfoPanel } from "@/components/InfoPanel";
+import { BottomNav } from "@/components/BottomNav";
 import { EligibilityForm } from "@/components/EligibilityForm";
 import { GrievanceForm } from "@/components/GrievanceForm";
 import { SearchSchemes } from "@/components/SearchSchemes";
@@ -46,38 +47,55 @@ const Index = () => {
   };
 
   return (
-    <div className="fixed inset-0 flex w-full overflow-hidden bg-background">
-      {/* Desktop Sidebar */}
-      <div className="hidden md:flex h-full">
-        <AppSidebar activeView={activeView} onViewChange={setActiveView} />
-      </div>
-
-      {/* Mobile Sidebar (Sheet) */}
-      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-        <SheetContent side="left" className="p-0 w-72">
-          <AppSidebar activeView={activeView} onViewChange={handleViewChange} />
-        </SheetContent>
-      </Sheet>
-
-      <div className="flex flex-col flex-1 min-w-0 relative">
-        {/* Mobile Header */}
-        <div className="md:hidden flex items-center gap-3 px-4 py-3 border-b border-border bg-card">
-          <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(true)}>
-            <Menu className="w-5 h-5" />
-          </Button>
-          <span className="font-display font-bold text-foreground">GovAssist AI</span>
+    <>
+      {/* Desktop Layout (md+) */}
+      <div className="hidden md:flex h-screen w-full overflow-hidden bg-gray-50">
+        {/* Left Sidebar (Fixed) */}
+        <div className="w-64 flex-shrink-0 h-full border-r border-gray-200 bg-white z-10">
+          <AppSidebar activeView={activeView} onViewChange={setActiveView} />
         </div>
 
-        <div className="flex flex-1 min-w-0 relative overflow-hidden">
+        {/* Center Main Content (Fluid) */}
+        <main className="flex-1 min-w-0 h-full flex flex-col relative overflow-hidden">
           {renderMainContent()}
-          {activeView === "chat" && (
-            <div className="hidden lg:block h-full border-l border-border">
-              <InfoPanel />
-            </div>
-          )}
-        </div>
+        </main>
+
+        {/* Right Info Panel (Fixed) */}
+        {activeView === "chat" && (
+          <div className="hidden lg:block w-80 flex-shrink-0 h-full border-l border-gray-200 bg-white z-10 overflow-y-auto">
+            <InfoPanel />
+          </div>
+        )}
       </div>
-    </div>
+
+      {/* Mobile Layout (Default) */}
+      <div className="md:hidden flex flex-col h-[100dvh] bg-white relative">
+        {/* Mobile Header */}
+        <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-white z-20">
+          <div className="flex items-center gap-2">
+            <span className="font-display font-bold text-lg text-primary">GovAssist</span>
+          </div>
+          <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(true)}>
+            <Menu className="w-6 h-6 text-gray-700" />
+          </Button>
+        </div>
+
+        {/* Mobile Content Area */}
+        <div className="flex-1 overflow-y-auto overflow-x-hidden pb-20 scrollbar-hide">
+          {renderMainContent()}
+        </div>
+
+        {/* Mobile Bottom Nav */}
+        <BottomNav activeView={activeView} onViewChange={setActiveView} />
+
+        {/* Mobile Sidebar Sheet (For Settings/Context) */}
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <SheetContent side="left" className="p-0 w-72">
+            <AppSidebar activeView={activeView} onViewChange={(v) => { setActiveView(v); setMobileMenuOpen(false); }} />
+          </SheetContent>
+        </Sheet>
+      </div>
+    </>
   );
 };
 

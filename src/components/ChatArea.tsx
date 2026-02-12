@@ -231,7 +231,7 @@ export function ChatArea() {
       )}
 
       {/* Main Chat Area */}
-      <div className="flex flex-col flex-1 min-w-0">
+      <div className="flex flex-col flex-1 min-w-0 h-full">
         {/* Header */}
         <header className="flex items-center gap-3 px-6 py-4 border-b border-border bg-card">
           <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">

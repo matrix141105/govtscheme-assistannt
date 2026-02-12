@@ -296,7 +296,7 @@ export function ChatArea() {
         </div>
 
         {/* Input */}
-        <div className="px-6 py-4 border-t border-border bg-card">
+        <div className="px-6 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border bg-card">
           <div className="flex items-center gap-2 bg-muted rounded-xl px-4 py-2">
             <input
               type="text"

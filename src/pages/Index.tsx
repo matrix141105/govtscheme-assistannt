@@ -46,7 +46,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex h-[100dvh] w-full overflow-hidden bg-background">
+    <div className="fixed inset-0 flex w-full overflow-hidden bg-background">
       {/* Desktop Sidebar */}
       <div className="hidden md:flex h-full">
         <AppSidebar activeView={activeView} onViewChange={setActiveView} />

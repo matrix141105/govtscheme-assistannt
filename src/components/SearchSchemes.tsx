@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
 import { Search, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import { useStateContext } from "@/context/StateContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { Skeleton } from "@/components/ui/skeleton";
 import { apiFetch } from "@/lib/api";
 import { ConnectionError } from "@/components/ConnectionError";
@@ -42,6 +42,7 @@ export function SearchSchemes() {
         }
     };
 
+    const { language, t } = useLanguage();
     const { selectedState } = useStateContext();
 
     const filteredSchemes = schemes.filter(
@@ -69,8 +70,8 @@ export function SearchSchemes() {
 
                 {/* Header */}
                 <div className="space-y-2">
-                    <h2 className="text-2xl font-display font-bold text-foreground">Find Government Schemes ({selectedState})</h2>
-                    <p className="text-muted-foreground">Search and explore various government initiatives tailored for you.</p>
+                    <h2 className="text-2xl font-display font-bold text-foreground">{t("Find Government Schemes")} ({selectedState})</h2>
+                    <p className="text-muted-foreground">{t("Search subtitle")}</p>
                 </div>
 
                 {/* Search Bar */}
@@ -78,7 +79,7 @@ export function SearchSchemes() {
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <input
                         type="text"
-                        placeholder="Search by name or category (e.g., Kisan, Housing)..."
+                        placeholder={t("Search placeholder")}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
@@ -139,14 +140,14 @@ export function SearchSchemes() {
                                     rel="noopener noreferrer"
                                     className="mt-auto w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-secondary text-secondary-foreground text-sm font-medium hover:bg-secondary/80 transition-colors"
                                 >
-                                    View Details <ExternalLink className="w-4 h-4" />
+                                    {t("View Details")} <ExternalLink className="w-4 h-4" />
                                 </a>
                             </div>
                         ))}
 
                         {filteredSchemes.length === 0 && (
                             <div className="col-span-full text-center py-10 text-muted-foreground">
-                                {schemes.length === 0 ? "Failed to load schemes. Ensure backend is running." : `No schemes found matching "${searchTerm}"`}
+                                {schemes.length === 0 ? "Failed to load schemes. Ensure backend is running." : `${t("No schemes found")} "${searchTerm}"`}
                             </div>
                         )}
                     </div>

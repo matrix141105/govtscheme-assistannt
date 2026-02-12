@@ -12,24 +12,23 @@ interface AppSidebarProps {
   onViewChange: (view: View) => void;
 }
 
-const navItems: { title: string; icon: React.ElementType; view: View }[] = [
-  { title: "Chat", icon: MessageSquare, view: "chat" },
-  { title: "Search Schemes", icon: Search, view: "search" },
-  { title: "Check Eligibility", icon: ClipboardCheck, view: "eligibility" },
-  { title: "Grievance Redressal", icon: AlertTriangle, view: "grievance" },
-  { title: "Profile", icon: User, view: "profile" },
-];
-
 const languages = ["English", "हिन्दी", "తెలుగు", "Bhojpuri"];
 const states = ["All India", "Telangana", "Andhra Pradesh", "Karnataka", "Tamil Nadu", "Maharashtra", "Kerala"];
 
 export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
   const { user, isAuthenticated, logout } = useAuth();
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const { selectedState, setSelectedState } = useStateContext();
   const [langOpen, setLangOpen] = useState(false);
   const [stateOpen, setStateOpen] = useState(false);
-  const [collapsed, setCollapsed] = useState(false);
+
+  const navItems: { title: string; icon: React.ElementType; view: View }[] = [
+    { title: t("Chat"), icon: MessageSquare, view: "chat" },
+    { title: t("Search Schemes"), icon: Search, view: "search" },
+    { title: t("Check Eligibility"), icon: ClipboardCheck, view: "eligibility" },
+    { title: t("Grievance Redressal"), icon: AlertTriangle, view: "grievance" },
+    { title: t("Profile"), icon: User, view: "profile" },
+  ];
 
   return (
     <aside
@@ -42,7 +41,7 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
         </div>
         <div>
           <h1 className="text-lg font-display font-bold text-white">GovAssist AI</h1>
-          <p className="text-xs text-green-200">Your Government Helper</p>
+          <p className="text-xs text-green-200">{t("Your Government Helper")}</p>
         </div>
       </div>
 
@@ -88,7 +87,7 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
         ) : (
           <Link to="/login" className="flex items-center gap-2 justify-center w-full px-3 py-2 rounded-lg bg-white text-green-900 text-sm font-bold hover:bg-green-50 transition-colors shadow-sm">
             <LogIn className="w-4 h-4" />
-            Login / Signup
+            {t("Login / Signup")}
           </Link>
         )}
       </div>

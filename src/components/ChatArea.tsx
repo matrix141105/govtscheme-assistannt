@@ -23,13 +23,21 @@ const initialMessages: Message[] = [
 ];
 
 export function ChatArea() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const { selectedState } = useStateContext();
   const { token, isAuthenticated } = useAuth();
 
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [currentSessionId, setCurrentSessionId] = useState<number | null>(null);
-  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [messages, setMessages] = useState<Message[]>([]); // Initialize empty, set via useEffect for translation
+
+  useEffect(() => {
+    // Set initial message language dynamically
+    setMessages([
+      { id: 1, text: t("Welcome Message"), sender: "bot" }
+    ]);
+  }, [language]); // Re-run when language changes
+
   const [input, setInput] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -108,7 +116,7 @@ export function ChatArea() {
 
   const handleNewChat = () => {
     setCurrentSessionId(null);
-    setMessages(initialMessages);
+    setMessages([{ id: 1, text: t("Welcome Message"), sender: "bot" }]);
     setInput("");
   };
 
@@ -199,7 +207,7 @@ export function ChatArea() {
               className="w-full flex items-center gap-2 justify-center px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
             >
               <Plus className="w-4 h-4" />
-              New Chat
+              {t("New Chat")}
             </button>
           </div>
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
@@ -241,12 +249,12 @@ export function ChatArea() {
               <Bot className="w-4 h-4 text-primary" />
             </div>
             <div>
-              <h2 className="font-display font-bold text-foreground">Government Services Assistant</h2>
-              <p className="text-xs text-muted-foreground">Powered by GovAssist AI • Always available</p>
+              <h2 className="font-display font-bold text-foreground">{t("Government Services Assistant")}</h2>
+              <p className="text-xs text-muted-foreground">{t("Powered by")}</p>
             </div>
             <div className="ml-auto flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs text-muted-foreground">Online</span>
+              <span className="text-xs text-muted-foreground">{t("Online")}</span>
             </div>
           </header>
 
@@ -311,7 +319,7 @@ export function ChatArea() {
                     handleSend();
                   }
                 }}
-                placeholder={isLoading ? "Waiting for response..." : "Ask about government schemes..."}
+                placeholder={isLoading ? t("Waiting") : t("Ask placeholder")}
                 disabled={isLoading}
                 className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:opacity-50"
               />

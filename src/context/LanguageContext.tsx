@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-
-type Language = "English" | "हिन्दी" | "తెలుగు" | "Bhojpuri";
+import { translations, Language } from "@/lib/translations";
 
 interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
+    t: (key: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -18,8 +18,13 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
         localStorage.setItem("app-language", language);
     }, [language]);
 
+    const t = (key: string): string => {
+        const langData = translations[language] as Record<string, string>;
+        return langData[key] || key; // Fallback to key if translation missing
+    };
+
     return (
-        <LanguageContext.Provider value={{ language, setLanguage }}>
+        <LanguageContext.Provider value={{ language, setLanguage, t }}>
             {children}
         </LanguageContext.Provider>
     );

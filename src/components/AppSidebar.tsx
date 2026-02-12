@@ -1,4 +1,4 @@
-import { MessageSquare, Search, ClipboardCheck, AlertTriangle, User, Globe, ChevronDown, Shield, LogIn, MapPin } from "lucide-react";
+import { MessageSquare, Search, ClipboardCheck, AlertTriangle, User, Globe, ChevronDown, Shield, LogIn, MapPin, LogOut } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -24,7 +24,7 @@ const languages = ["English", "हिन्दी", "తెలుగు", "Bhojp
 const states = ["All India", "Telangana", "Andhra Pradesh", "Karnataka", "Tamil Nadu", "Maharashtra", "Kerala"];
 
 export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const { language, setLanguage } = useLanguage();
   const { selectedState, setSelectedState } = useStateContext();
   const [langOpen, setLangOpen] = useState(false);
@@ -77,6 +77,13 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
               <p className="text-sm font-medium truncate text-white">{user?.name}</p>
               <p className="text-xs text-green-200 truncate">{user?.email}</p>
             </div>
+            <button
+              onClick={logout}
+              className="p-1.5 rounded-lg text-green-200 hover:text-white hover:bg-green-700 transition-colors"
+              title="Log Out"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
           </div>
         ) : (
           <Link to="/login" className="flex items-center gap-2 justify-center w-full px-3 py-2 rounded-lg bg-white text-green-900 text-sm font-bold hover:bg-green-50 transition-colors shadow-sm">

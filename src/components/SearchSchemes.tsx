@@ -30,10 +30,7 @@ export function SearchSchemes() {
         setLoading(true);
         setError(false);
         try {
-            const response = await apiFetch("/api/search", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-            });
+            const response = await apiFetch("/api/schemes");
             const data = await response.json();
             setSchemes(data);
         } catch (error) {

@@ -46,7 +46,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-background">
+    <div className="flex h-[100dvh] w-full overflow-hidden bg-background">
       {/* Desktop Sidebar */}
       <div className="hidden md:flex h-full">
         <AppSidebar activeView={activeView} onViewChange={setActiveView} />
@@ -68,7 +68,7 @@ const Index = () => {
           <span className="font-display font-bold text-foreground">GovAssist AI</span>
         </div>
 
-        <div className="flex flex-1 min-w-0 relative">
+        <div className="flex flex-1 min-w-0 relative overflow-hidden">
           {renderMainContent()}
           {activeView === "chat" && (
             <div className="hidden lg:block h-full border-l border-border">

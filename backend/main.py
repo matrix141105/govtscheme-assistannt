@@ -45,6 +45,9 @@ with open("startup_log.txt", "a") as f:
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "*"
 ]
 
 if os.getenv("FRONTEND_URL"):
@@ -243,7 +246,7 @@ def search_google(query):
 
     try:
         # Search constrained to India (in-en) for better relevance
-        results = DDGS().text(query, max_results=5, region='in-en')
+        results = list(DDGS().text(query, max_results=5, region='in-en'))
         if not results:
             return "No web search results found."
         

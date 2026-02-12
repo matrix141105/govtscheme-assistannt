@@ -121,7 +121,7 @@ export function SearchSchemes() {
 
                         {filteredSchemes.length === 0 && (
                             <div className="col-span-full text-center py-10 text-muted-foreground">
-                                No schemes found matching "{searchTerm}"
+                                {schemes.length === 0 ? "Failed to load schemes. Ensure backend is running." : `No schemes found matching "${searchTerm}"`}
                             </div>
                         )}
                     </div>

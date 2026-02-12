@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { User, LogOut, Plus, Trash2, Users } from "lucide-react";
+import { User, LogOut, Plus, Trash2, Users, Globe } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -105,9 +105,9 @@ export function Profile() {
 
     if (!isAuthenticated) {
         return (
-            <div className="flex flex-col items-center justify-center h-full space-y-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-background">
                 <div className="p-4 bg-muted rounded-full">
-                    <User className="w-12 h-12 text-muted-foreground" />
+                    <Globe className="w-12 h-12 text-muted-foreground" />
                 </div>
                 <h2 className="text-xl font-semibold">Guest User</h2>
                 <p className="text-muted-foreground text-center max-w-sm">

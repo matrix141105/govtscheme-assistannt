@@ -68,10 +68,10 @@ const Index = () => {
           <span className="font-display font-bold text-foreground">GovAssist AI</span>
         </div>
 
-        <div className="flex flex-1 min-w-0 relative overflow-hidden">
+        <div className="flex flex-1 min-w-0 relative">
           {renderMainContent()}
           {activeView === "chat" && (
-            <div className="hidden xl:block h-full border-l border-border">
+            <div className="hidden lg:block h-full border-l border-border">
               <InfoPanel />
             </div>
           )}

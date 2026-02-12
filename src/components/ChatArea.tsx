@@ -1,4 +1,4 @@
-import { API_BASE } from "@/config";
+import { apiFetch } from "@/lib/api";
 import { Send, Mic, Bot, UserCircle, Plus, MessageSquare, Trash2 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -46,7 +46,7 @@ export function ChatArea() {
 
   const fetchSessions = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/chats`, {
+      const res = await apiFetch("/api/chats", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -62,7 +62,7 @@ export function ChatArea() {
     if (!token) return;
     setIsLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/api/chats/${sessionId}`, {
+      const res = await apiFetch(`/api/chats/${sessionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -89,7 +89,7 @@ export function ChatArea() {
     if (!confirm("Are you sure you want to delete this chat?")) return;
 
     try {
-      const res = await fetch(`${API_BASE}/api/chats/${sessionId}`, {
+      const res = await apiFetch(`/api/chats/${sessionId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -143,7 +143,7 @@ export function ChatArea() {
         headers.Authorization = `Bearer ${token}`;
       }
 
-      const response = await fetch(`${API_BASE}/api/chat`, {
+      const response = await apiFetch("/api/chat", {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),

@@ -4,6 +4,8 @@ import { Search, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 import { useStateContext } from "@/context/StateContext";
 import { Skeleton } from "@/components/ui/skeleton";
+import { apiFetch } from "@/lib/api";
+import { ConnectionError } from "@/components/ConnectionError";
 
 interface Scheme {
     id: number;
@@ -18,20 +20,26 @@ export function SearchSchemes() {
     const [schemes, setSchemes] = useState<Scheme[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         fetchSchemes();
     }, []);
 
     const fetchSchemes = async () => {
+        setLoading(true);
+        setError(false);
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/schemes");
-            if (!response.ok) throw new Error("Failed to fetch schemes");
+            const response = await apiFetch("/api/search", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+            });
             const data = await response.json();
             setSchemes(data);
         } catch (error) {
             console.error(error);
-            toast.error("Could not load schemes. Please make sure backend is running.");
+            setError(true);
+            toast.error("Could not load schemes. Server might be sleeping.");
         } finally {
             setLoading(false);
         }
@@ -46,8 +54,6 @@ export function SearchSchemes() {
                 s.tag.toLowerCase().includes(searchTerm.toLowerCase());
 
             // State/Region Filter
-            // If All India => Show only "Central"
-            // If Specific State => Show "Central" OR "State Name"
             const matchesState = selectedState === "All India"
                 ? s.state === "Central"
                 : (s.state === "Central" || s.state === selectedState);
@@ -55,6 +61,10 @@ export function SearchSchemes() {
             return matchesSearch && matchesState;
         }
     );
+
+    if (error) {
+        return <ConnectionError onRetry={fetchSchemes} />;
+    }
 
     return (
         <div className="flex-1 overflow-y-auto p-6 bg-background">

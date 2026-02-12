@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { toast } from "sonner";
+import { apiFetch } from "@/lib/api";
 
 interface User {
     id: number;
@@ -30,7 +31,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const fetchUser = async (authToken: string) => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/auth/me", {
+            // apiFetch handles retries and prepends API_BASE_URL
+            const response = await apiFetch("/api/auth/me", {
                 headers: {
                     Authorization: `Bearer ${authToken}`,
                 },
@@ -44,6 +46,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             }
         } catch (error) {
             console.error("Failed to fetch user:", error);
+            // If it's a network error (server sleeping), we might not want to logout immediately in a real app,
+            // but for now, if we can't verify the token, treating as logged out is safer/standard.
             logout();
         }
     };

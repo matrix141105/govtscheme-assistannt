@@ -1,4 +1,5 @@
 import { ClipboardCheck, ArrowLeft, Loader2, CheckCircle, XCircle, UserPlus } from "lucide-react";
+import { apiFetch } from "@/lib/api";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
@@ -39,7 +40,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
     queryKey: ["profiles"],
     queryFn: async () => {
       if (!token) return [];
-      const res = await fetch("http://127.0.0.1:8000/api/profiles", {
+      const res = await fetch(`${API_BASE_URL}/api/profiles`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) return [];
@@ -75,7 +76,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
     setResults(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/check-eligibility", {
+      const response = await apiFetch("/api/check-eligibility", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

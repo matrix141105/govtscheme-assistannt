@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
+import { apiFetch } from "@/lib/api";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -22,7 +23,7 @@ export default function Login() {
             formData.append("username", data.email);
             formData.append("password", data.password);
 
-            const response = await fetch("http://127.0.0.1:8000/api/auth/login", {
+            const response = await apiFetch("/api/auth/login", {
                 method: "POST",
                 body: formData,
             });

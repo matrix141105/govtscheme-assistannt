@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { apiFetch } from "@/lib/api";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ export default function Signup() {
     const onSubmit = async (data: any) => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/auth/signup", {
+            const response = await apiFetch("/api/auth/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

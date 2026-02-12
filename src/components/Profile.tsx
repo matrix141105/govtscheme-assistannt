@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { apiFetch } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
@@ -38,19 +39,22 @@ export function Profile() {
         queryKey: ["profiles"],
         queryFn: async () => {
             if (!token) return [];
-            const res = await fetch("http://127.0.0.1:8000/api/profiles", {
+            // apiFetch handles retries
+            const res = await apiFetch("/api/profiles", {
                 headers: { Authorization: `Bearer ${token}` },
             });
+            // apiFetch throws on 4xx/5xx, but we can double check
             if (!res.ok) throw new Error("Failed to fetch profiles");
             return res.json() as Promise<ProfileData[]>;
         },
         enabled: !!token,
+        retry: 1, // Let react-query handle some retries too, but our apiFetch has internal retries
     });
 
     // Add Profile Mutation
     const addProfileMutation = useMutation({
         mutationFn: async (data: any) => {
-            const res = await fetch("http://127.0.0.1:8000/api/profiles", {
+            const res = await apiFetch("/api/profiles", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +62,6 @@ export function Profile() {
                 },
                 body: JSON.stringify(data),
             });
-            if (!res.ok) throw new Error("Failed to add profile");
             return res.json();
         },
         onSuccess: () => {
@@ -73,11 +76,10 @@ export function Profile() {
     // Delete Profile Mutation
     const deleteProfileMutation = useMutation({
         mutationFn: async (id: number) => {
-            const res = await fetch(`http://127.0.0.1:8000/api/profiles/${id}`, {
+            await apiFetch(`/api/profiles/${id}`, {
                 method: "DELETE",
                 headers: { Authorization: `Bearer ${token}` },
             });
-            if (!res.ok) throw new Error("Failed to delete profile");
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["profiles"] });

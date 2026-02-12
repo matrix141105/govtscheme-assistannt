@@ -56,7 +56,7 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
           return (
             <button
               key={item.view}
-              onClick={() => onViewChange(item.view)}
+              onClick={() => (item.view === "profile" ? onViewChange("profile") : onViewChange(item.view))}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
                 ? "bg-sidebar-accent text-sidebar-primary"
                 : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
@@ -69,29 +69,29 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
         })}
       </nav>
 
-      <div className="mt-auto">
-        {/* Auth Section */}
-        {!collapsed && (
-          <div className="px-3 pb-2">
-            {isAuthenticated ? (
-              <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-sidebar-accent/20 border border-sidebar-border/50">
-                <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">
-                  {user?.name?.charAt(0).toUpperCase()}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium truncate">{user?.name}</p>
-                  <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
-                </div>
+      {/* Auth Section - Moved to Middle */}
+      {!collapsed && (
+        <div className="px-3 py-4 border-t border-sidebar-border/50">
+          {isAuthenticated ? (
+            <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-sidebar-accent/20 border border-sidebar-border/50">
+              <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs shrink-0">
+                {user?.name?.charAt(0).toUpperCase()}
               </div>
-            ) : (
-              <Link to="/login" className="flex items-center gap-2 justify-center w-full px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">
-                <LogIn className="w-4 h-4" />
-                Login / Signup
-              </Link>
-            )}
-          </div>
-        )}
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium truncate">{user?.name}</p>
+                <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
+              </div>
+            </div>
+          ) : (
+            <Link to="/login" className="flex items-center gap-2 justify-center w-full px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">
+              <LogIn className="w-4 h-4" />
+              Login / Signup
+            </Link>
+          )}
+        </div>
+      )}
 
+      <div className="mt-auto">
         {/* State Selector */}
         <div className="px-3 pb-2 relative">
           <button

@@ -52,7 +52,7 @@ const Index = () => {
       {/* Desktop Layout (md+) */}
       <div className="hidden md:flex h-screen w-full overflow-hidden bg-gray-50">
         {/* COLUMN 1: Sidebar (Desktop Only) */}
-        <aside className="w-64 flex-col fixed inset-y-0 left-0 z-50 bg-green-900 text-white hidden md:flex">
+        <aside className="w-64 flex-col fixed inset-y-0 left-0 z-50 bg-green-900 text-white hidden md:flex h-screen">
           <AppSidebar activeView={activeView} onViewChange={setActiveView} />
         </aside>
 

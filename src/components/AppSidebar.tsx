@@ -33,7 +33,7 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
 
   return (
     <aside
-      className={`hidden md:flex flex-col bg-green-900 text-white transition-all duration-300 w-64 h-screen shrink-0`}
+      className={`flex flex-col bg-green-900 text-white transition-all duration-300 w-full h-full shrink-0`}
     >
       {/* Header */}
       <div className="flex items-center gap-3 px-4 py-5 border-b border-green-800">

@@ -6,7 +6,9 @@ import { EligibilityForm } from "@/components/EligibilityForm";
 import { GrievanceForm } from "@/components/GrievanceForm";
 import { SearchSchemes } from "@/components/SearchSchemes";
 import { Profile } from "@/components/Profile";
-import { Search, User } from "lucide-react";
+import { Search, User, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 type View = "chat" | "search" | "eligibility" | "grievance" | "profile";
 
@@ -19,6 +21,12 @@ const PlaceholderView = ({ title, icon: Icon }: { title: string; icon: React.Ele
 
 const Index = () => {
   const [activeView, setActiveView] = useState<View>("chat");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleViewChange = (view: View) => {
+    setActiveView(view);
+    setMobileMenuOpen(false);
+  };
 
   const renderMainContent = () => {
     switch (activeView) {
@@ -39,10 +47,35 @@ const Index = () => {
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-background">
-      <AppSidebar activeView={activeView} onViewChange={setActiveView} />
-      <div className="flex flex-1 min-w-0 relative">
-        {renderMainContent()}
-        {activeView === "chat" && <InfoPanel />}
+      {/* Desktop Sidebar */}
+      <div className="hidden md:flex h-full">
+        <AppSidebar activeView={activeView} onViewChange={setActiveView} />
+      </div>
+
+      {/* Mobile Sidebar (Sheet) */}
+      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+        <SheetContent side="left" className="p-0 w-72">
+          <AppSidebar activeView={activeView} onViewChange={handleViewChange} />
+        </SheetContent>
+      </Sheet>
+
+      <div className="flex flex-col flex-1 min-w-0 relative">
+        {/* Mobile Header */}
+        <div className="md:hidden flex items-center gap-3 px-4 py-3 border-b border-border bg-card">
+          <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(true)}>
+            <Menu className="w-5 h-5" />
+          </Button>
+          <span className="font-display font-bold text-foreground">GovAssist AI</span>
+        </div>
+
+        <div className="flex flex-1 min-w-0 relative overflow-hidden">
+          {renderMainContent()}
+          {activeView === "chat" && (
+            <div className="hidden xl:block h-full border-l border-border">
+              <InfoPanel />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

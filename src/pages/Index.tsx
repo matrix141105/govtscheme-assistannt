@@ -57,7 +57,7 @@ const Index = () => {
         </aside>
 
         {/* COLUMN 2: Main Chat (Center) */}
-        <main className="flex-1 flex flex-col md:pl-64 lg:pr-80 relative w-full h-full">
+        <main className={`flex-1 flex flex-col md:pl-64 ${activeView === 'chat' ? 'lg:pr-80' : ''} relative w-full h-full transition-all duration-300`}>
           {renderMainContent()}
         </main>
 

@@ -14,6 +14,11 @@ interface Scheme {
     url: string;
     state: string;
     details: Record<string, string>;
+    translations?: Record<string, {
+        name: string;
+        tag?: string;
+        details: Record<string, string>;
+    }>;
 }
 
 export function SearchSchemes() {
@@ -45,7 +50,19 @@ export function SearchSchemes() {
     const { language, t } = useLanguage();
     const { selectedState } = useStateContext();
 
-    const filteredSchemes = schemes.filter(
+    const filteredSchemes = schemes.map(s => {
+        // Resolve translation based on current language
+        if (language !== "English" && s.translations && s.translations[language]) {
+            const trans = s.translations[language];
+            return {
+                ...s,
+                name: trans.name,
+                tag: trans.tag || s.tag,
+                details: trans.details
+            };
+        }
+        return s;
+    }).filter(
         (s) => {
             // Text Search Filter
             const matchesSearch = s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

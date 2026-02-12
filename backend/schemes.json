@@ -9,6 +9,35 @@
             "Benefit": "₹6,000 per year in 3 equal installments.",
             "Eligibility": "Landholding farmer families with cultivable land.",
             "Process": "Register at pmkisan.gov.in."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "पीएम किसान सम्मान निधि",
+                "tag": "कृषि",
+                "details": {
+                    "लाभ": "3 समान किस्तों में प्रति वर्ष ₹6,000।",
+                    "पात्रता": "कृषि योग्य भूमि वाले किसान परिवार।",
+                    "प्रक्रिया": "pmkisan.gov.in पर पंजीकरण करें।"
+                }
+            },
+            "తెలుగు": {
+                "name": "పిఎం కిసాన్ సమ్మాన్ నిధి",
+                "tag": "వ్యవసాయం",
+                "details": {
+                    "ప్రయోజనం": "ఏడాదికి ₹6,000 మూడు విడతల్లో.",
+                    "అర్హత": "సాగు భూమి ఉన్న రైతు కుటుంబాలు.",
+                    "ప్రక్రియ": "pmkisan.gov.in లో నమోదు చేసుకోండి."
+                }
+            },
+            "Bhojpuri": {
+                "name": "पीएम किसान सम्मान निधि",
+                "tag": "खेती-बारी",
+                "details": {
+                    "लाभ": "साल में ₹6,000 तीन बराबर किश्त में।",
+                    "पात्रता": "खेती लायक जमीन वाले किसान परिवार।",
+                    "प्रक्रिया": "pmkisan.gov.in पर रजिस्ट्रेशन करीं।"
+                }
+            }
         }
     },
     {
@@ -18,9 +47,38 @@
         "url": "https://prajapalana.telangana.gov.in/",
         "state": "Telangana",
         "details": {
-            "Benefit": "₹1,250 per month directly to bank account (Example benefit, confirm official details).",
+            "Benefit": "₹1,250 per month directly to bank account.",
             "Eligibility": "Farmers with land ownership.",
             "Documents": "Samagra ID, Aadhaar Card, Bank Account."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "रायथू भरोसा (रायथू बंधु)",
+                "tag": "कृषि",
+                "details": {
+                    "लाभ": "₹1,250 प्रति माह सीधे बैंक खाते में।",
+                    "पात्रता": "भूमि स्वामित्व वाले किसान।",
+                    "दस्तावेज़": "समग्र आईडी, आधार कार्ड, बैंक खाता।"
+                }
+            },
+            "తెలుగు": {
+                "name": "రైతు భరోసా (రైతు బంధు)",
+                "tag": "వ్యవసాయం",
+                "details": {
+                    "ప్రయోజనం": "నెలకు ₹1,250 నేరుగా బ్యాంకు ఖాతాలో.",
+                    "అర్హత": "భూమి ఉన్న రైతులు.",
+                    "పత్రాలు": "సమగ్ర ఐడి, ఆధార్ కార్డు, బ్యాంకు ఖాతా."
+                }
+            },
+            "Bhojpuri": {
+                "name": "रायथू भरोसा (रायथू बंधु)",
+                "tag": "खेती-बारी",
+                "details": {
+                    "लाभ": "₹1,250 महीना सीधे बैंक खाता में।",
+                    "पात्रता": "जमीन वाले किसान।",
+                    "कागजात": "समग्र आईडी, आधार कार्ड, बैंक खाता।"
+                }
+            }
         }
     },
     {
@@ -32,6 +90,32 @@
         "details": {
             "Benefit": "Subsidy for building/purchasing affordable houses (up to ₹2.67 Lakh).",
             "Eligibility": "Families with no pucca house."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "प्रधानमंत्री आवास योजना (PMAY)",
+                "tag": "आवास",
+                "details": {
+                    "लाभ": "घर बनाने/खरीदने के लिए सब्सिडी (₹2.67 लाख तक)।",
+                    "पात्रता": "जिन परिवारों के पास पक्का घर नहीं है।"
+                }
+            },
+            "తెలుగు": {
+                "name": "ప్రధాన మంత్రి ఆవాస్ యోజన (PMAY)",
+                "tag": "గృహనిర్మాణం",
+                "details": {
+                    "ప్రయోజనం": "ఇల్లు కట్టుకోవడానికి/కొనుగోలు చేయడానికి సబ్సిడీ (₹2.67 లక్షల వరకు).",
+                    "అర్హత": "పక్కా ఇల్లు లేని కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "प्रधानमंत्री आवास योजना (PMAY)",
+                "tag": "आवास",
+                "details": {
+                    "लाभ": "घर बनावे/खरीदे खातिर सब्सिडी (₹2.67 लाख तक)।",
+                    "पात्रता": "जेकरा पास पक्का मकान नईखे।"
+                }
+            }
         }
     },
     {
@@ -41,8 +125,34 @@
         "url": "https://pmjay.gov.in/",
         "state": "Central",
         "details": {
-            "Benefit": "Health cover of ₹5 Lakh per family per year for secondary/tertiary care.",
+            "Benefit": "Health cover of ₹5 Lakh per family per year.",
             "Eligibility": "Low-income families found in the SECC database."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "आयुष्मान भारत (PM-JAY)",
+                "tag": "स्वास्थ्य",
+                "details": {
+                    "लाभ": "प्रति परिवार प्रति वर्ष ₹5 लाख का स्वास्थ्य कवर।",
+                    "पात्रता": "SECC डेटाबेस में शामिल कम आय वाले परिवार।"
+                }
+            },
+            "తెలుగు": {
+                "name": "ఆయుష్మాన్ భారత్ (PM-JAY)",
+                "tag": "ఆరోగ్యం",
+                "details": {
+                    "ప్రయోజనం": "కుటుంబానికి ఏడాదికి ₹5 లక్షల ఆరోగ్య బీమా.",
+                    "అర్హత": "SECC డేటాబేస్ లో ఉన్న తక్కువ ఆదాయ కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "आयुष्मान भारत (PM-JAY)",
+                "tag": "स्वास्थ्य",
+                "details": {
+                    "लाभ": "हर परिवार के हर साल ₹5 लाख के इलाज के सुविधा।",
+                    "पात्रता": "कम कमाई वाला परिवार जे SECC लिस्ट में बा।"
+                }
+            }
         }
     },
     {
@@ -52,8 +162,34 @@
         "url": "https://scholarships.gov.in/",
         "state": "Central",
         "details": {
-            "Benefit": "Financial assistance for education fees and maintenance allowance.",
-            "Eligibility": "Students with family income < ₹2.5 Lakh per year (varies by specific scheme)."
+            "Benefit": "Financial assistance for education fees.",
+            "Eligibility": "Students with family income < ₹2.5 Lakh per year."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP)",
+                "tag": "शिक्षा",
+                "details": {
+                    "लाभ": "शिक्षा शुल्क के लिए वित्तीय सहायता।",
+                    "पात्रता": "₹2.5 लाख से कम वार्षिक पारिवारिक आय वाले छात्र।"
+                }
+            },
+            "తెలుగు": {
+                "name": "నేషనల్ స్కాలర్‌షిప్ పోర్టల్ (NSP)",
+                "tag": "విద్య",
+                "details": {
+                    "ప్రయోజనం": "చదువు ఖర్చుల కోసం ఆర్థిక సహాయం.",
+                    "అర్హత": "కుటుంబ ఆదాయం ఏడాదికి ₹2.5 లక్షల కంటే తక్కువ ఉన్న విద్యార్థులు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "राष्ट्रीय छात्रवृत्ति पोर्टल (NSP)",
+                "tag": "पढ़ाई-लिखाई",
+                "details": {
+                    "लाभ": "पढ़ाई के खर्चा खातिर मदद।",
+                    "पात्रता": "उ छात्र जेकर परिवार के सालाना कमाई ₹2.5 लाख से कम बा।"
+                }
+            }
         }
     },
     {
@@ -63,8 +199,34 @@
         "url": "https://pmvishwakarma.gov.in/",
         "state": "Central",
         "details": {
-            "Benefit": "Collateral-free loans up to ₹3 Lakh at 5% interest, tool kit incentive, and skill training.",
-            "Eligibility": "Artisans and craftspeople (18+ years) working with hands/tools."
+            "Benefit": "Collateral-free loans up to ₹3 Lakh at 5% interest.",
+            "Eligibility": "Artisans and craftspeople (18+ years)."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "पीएम विश्वकर्मा योजना",
+                "tag": "कौशल विकास",
+                "details": {
+                    "लाभ": "बिना गारंटी के ₹3 लाख तक का ऋण 5% ब्याज पर।",
+                    "पात्रता": "कारीगर और शिल्पकार (18+ वर्ष)।"
+                }
+            },
+            "తెలుగు": {
+                "name": "పిఎం విశ్వకర్మ యోజన",
+                "tag": "నైపుణ్యాభివృద్ధి",
+                "details": {
+                    "ప్రయోజనం": "5% వడ్డీతో ₹3 లక్షల వరకు హామీ లేని రుణాలు.",
+                    "అర్హత": "చేతివృత్తుల వారు మరియు కళాకారులు (18+ ఏళ్లు)."
+                }
+            },
+            "Bhojpuri": {
+                "name": "पीएम विश्वकर्मा योजना",
+                "tag": "हुनर विकास",
+                "details": {
+                    "लाभ": "बिना गारंटी के ₹3 लाख तक के लोन 5% ब्याज पर।",
+                    "पात्रता": "कारीगर अउर शिल्पकार (18 साल से ऊपर)।"
+                }
+            }
         }
     },
     {
@@ -74,8 +236,34 @@
         "url": "https://ysrrythubharosa.ap.gov.in/",
         "state": "Andhra Pradesh",
         "details": {
-            "Benefit": "Financial assistance of ₹13,500 per year to farmer families.",
-            "Eligibility": "Land owning farmer families and SC/ST/BC/Minority tenant farmers."
+            "Benefit": "Financial assistance of ₹13,500 per year.",
+            "Eligibility": "Land owning farmer families."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "वाईएसआर रायथू भरोसा",
+                "tag": "कृषि",
+                "details": {
+                    "लाभ": "₹13,500 प्रति वर्ष की वित्तीय सहायता।",
+                    "पात्रता": "भूमि स्वामित्व वाले किसान परिवार।"
+                }
+            },
+            "తెలుగు": {
+                "name": "వైఎస్ఆర్ రైతు భరోసా",
+                "tag": "వ్యవసాయం",
+                "details": {
+                    "ప్రయోజనం": "ఏడాదికి ₹13,500 ఆర్థిక సహాయం.",
+                    "అర్హత": "భూమి ఉన్న రైతు కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "वाईसर रायथू भरोसा",
+                "tag": "खेती-बारी",
+                "details": {
+                    "लाभ": "साल में ₹13,500 के मदद।",
+                    "पात्रता": "जमीन वाले किसान परिवार।"
+                }
+            }
         }
     },
     {
@@ -85,8 +273,34 @@
         "url": "https://sevasindhu.karnataka.gov.in/",
         "state": "Karnataka",
         "details": {
-            "Benefit": "₹2,000 monthly assistance to the woman head of the family.",
+            "Benefit": "₹2,000 monthly assistance to woman head of family.",
             "Eligibility": "Woman head of family in Antyodaya/BPL/APL cards."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "गृह लक्ष्मी",
+                "tag": "समाज कल्याण",
+                "details": {
+                    "लाभ": "परिवार की महिला मुखिया को ₹2,000 मासिक सहायता।",
+                    "पात्रता": "राशन कार्ड में परिवार की महिला मुखिया।"
+                }
+            },
+            "తెలుగు": {
+                "name": "గృహ లక్ష్మి",
+                "tag": "సామాజిక సంక్షేమం",
+                "details": {
+                    "ప్రయోజనం": "కుటుంబ పెద్ద అయిన మహిళకు నెలకు ₹2,000.",
+                    "అర్హత": "రేషన్ కార్డులో కుటుంబ పెద్దగా ఉన్న మహిళలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "गृह लक्ष्मी",
+                "tag": "समाज कल्याण",
+                "details": {
+                    "लाभ": "परिवार के महिला मुखिया के ₹2,000 महीना।",
+                    "पात्रता": "राशन कार्ड में परिवार के महिला मुखिया।"
+                }
+            }
         }
     },
     {
@@ -96,8 +310,34 @@
         "url": "https://kmut.tn.gov.in/",
         "state": "Tamil Nadu",
         "details": {
-            "Benefit": "₹1,000 monthly financial assistance to eligible women heads of families.",
-            "Eligibility": "Women heads of families with annual family income less than ₹2.5 Lakh."
+            "Benefit": "₹1,000 monthly financial assistance.",
+            "Eligibility": "Women heads of families with income < ₹2.5 Lakh."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "कलैगनार मगलिर उरीमाई थोगई",
+                "tag": "समाज कल्याण",
+                "details": {
+                    "लाभ": "₹1,000 मासिक वित्तीय सहायता।",
+                    "पात्रता": "कम आय वाले परिवारों की महिला मुखिया।"
+                }
+            },
+            "తెలుగు": {
+                "name": "కలైజ్ఞర్ మగలిర్ ఉరిమై తొగై",
+                "tag": "సామాజిక సంక్షేమం",
+                "details": {
+                    "ప్రయోజనం": "నెలకు ₹1,000 ఆర్థిక సహాయం.",
+                    "అర్హత": "తక్కువ ఆదాయం ఉన్న కుటుంబాల మహిళా పెద్దలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "कलैगनार मगलिर उरीमाई थोगई",
+                "tag": "समाज कल्याण",
+                "details": {
+                    "लाभ": "₹1,000 महीना के मदद।",
+                    "पात्रता": "कम कमाई वाले परिवार के महिला मुखिया।"
+                }
+            }
         }
     },
     {
@@ -107,8 +347,34 @@
         "url": "https://cmladlibahna.mp.gov.in/",
         "state": "Madhya Pradesh",
         "details": {
-            "Benefit": "₹1,250 per month directly to bank accounts of eligible women.",
-            "Eligibility": "Married women aged 21-60 years with family income less than ₹2.5 Lakh."
+            "Benefit": "₹1,250 per month to eligible women.",
+            "Eligibility": "Married women aged 21-60 years, income < ₹2.5 Lakh."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "लाड़ली बहना योजना",
+                "tag": "महिला सशक्तिकरण",
+                "details": {
+                    "लाभ": "पात्र महिलाओं को ₹1,250 प्रति माह।",
+                    "पात्रता": "विवाहित महिलाएं (21-60 वर्ष), आय ₹2.5 लाख से कम।"
+                }
+            },
+            "తెలుగు": {
+                "name": "లాడ్లీ బెహనా యోజన",
+                "tag": "మహిళా సాధికారత",
+                "details": {
+                    "ప్రయోజనం": "అర్హులైన మహిళలకు నెలకు ₹1,250.",
+                    "అర్హత": "వివాహిత మహిళలు (21-60 ఏళ్లు), ఆదాయం ₹2.5 లక్షల కంటే తక్కువ."
+                }
+            },
+            "Bhojpuri": {
+                "name": "लाड़ली बहना योजना",
+                "tag": "महिला सशक्तिकरण",
+                "details": {
+                    "लाभ": "पात्र मेहरारू लोग के ₹1,250 महीना।",
+                    "पात्रता": "बियाहल मेहरारू (21-60 साल), कमाई ₹2.5 लाख से कम।"
+                }
+            }
         }
     },
     {
@@ -118,8 +384,34 @@
         "url": "https://www.wbkanyashree.gov.in/",
         "state": "West Bengal",
         "details": {
-            "Benefit": "Annual scholarship of ₹1,000 (K1) and one-time grant of ₹25,000 (K2).",
-            "Eligibility": "Unmarried girls aged 13-18 years enrolled in school."
+            "Benefit": "Annual scholarship of ₹1,000 and one-time ₹25,000.",
+            "Eligibility": "Unmarried girls aged 13-18 years under education."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "कन्याश्री प्रकल्प",
+                "tag": "शिक्षा",
+                "details": {
+                    "लाभ": "₹1,000 वार्षिक और ₹25,000 एकमुश्त।",
+                    "पात्रता": "13-18 वर्ष की अविवाहित छात्राएं।"
+                }
+            },
+            "తెలుగు": {
+                "name": "కన్యాశ్రీ ప్రకల్ప",
+                "tag": "విద్య",
+                "details": {
+                    "ప్రయోజనం": "ఏడాదికి ₹1,000 మరియు ఒకేసారి ₹25,000.",
+                    "అర్హత": "చదువుకుంటున్న 13-18 ఏళ్ల పెళ్లి కాని అమ్మాయిలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "कन्याश्री प्रकल्प",
+                "tag": "पढ़ाई",
+                "details": {
+                    "लाभ": "साल में ₹1,000 अउर एक बार ₹25,000।",
+                    "पात्रता": "13-18 साल के बिन बियाहल छात्रा।"
+                }
+            }
         }
     },
     {
@@ -129,8 +421,34 @@
         "url": "https://dalitbandhu.telangana.gov.in/",
         "state": "Telangana",
         "details": {
-            "Benefit": "One-time grant of ₹10 Lakh per family for entrepreneurship/business.",
+            "Benefit": "₹10 Lakh grant for business.",
             "Eligibility": "Dalit families in Telangana."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "दलित बंधु",
+                "tag": "समाज कल्याण",
+                "details": {
+                    "लाभ": "व्यवसाय के लिए ₹10 लाख का अनुदान।",
+                    "पात्रता": "तेलंगाना में दलित परिवार।"
+                }
+            },
+            "తెలుగు": {
+                "name": "దళిత బంధు",
+                "tag": "సామాజిక సంక్షేమం",
+                "details": {
+                    "ప్రయోజనం": "వ్యాపారం కోసం ₹10 లక్షల గ్రాంటు.",
+                    "అర్హత": "తెలంగాణలో దళిత కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "दलित बंधु",
+                "tag": "समाज कल्याण",
+                "details": {
+                    "लाभ": "कारोबार खातिर ₹10 लाख के अनुदान।",
+                    "पात्रता": "तेलंगाना में दलित परिवार।"
+                }
+            }
         }
     },
     {
@@ -140,8 +458,34 @@
         "url": "https://ysrarogyasri.ap.gov.in/",
         "state": "Andhra Pradesh",
         "details": {
-            "Benefit": "Free healthcare coverage up to ₹5 Lakh (or more) for identified diseases.",
-            "Eligibility": "Families with Rice Cards (BPL) in Andhra Pradesh."
+            "Benefit": "Free healthcare coverage up to ₹5 Lakh.",
+            "Eligibility": "Families with Rice Cards (BPL)."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "आरोग्यश्री",
+                "tag": "स्वास्थ्य",
+                "details": {
+                    "लाभ": "₹5 लाख तक मुफ्त स्वास्थ्य कवरेज।",
+                    "पात्रता": "राइस कार्ड (BPL) वाले परिवार।"
+                }
+            },
+            "తెలుగు": {
+                "name": "ఆరోగ్యశ్రీ",
+                "tag": "ఆరోగ్యం",
+                "details": {
+                    "ప్రయోజనం": "₹5 లక్షల వరకు ఉచిత వైద్యం.",
+                    "అర్హత": "బియ్యం కార్డు ఉన్న కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "आरोग्यश्री",
+                "tag": "स्वास्थ्य",
+                "details": {
+                    "लाभ": "₹5 लाख तक मुफ्त इलाज।",
+                    "पात्रता": "राइस कार्ड (BPL) वाले परिवार।"
+                }
+            }
         }
     },
     {
@@ -151,8 +495,34 @@
         "url": "https://mksy.up.gov.in/",
         "state": "Uttar Pradesh",
         "details": {
-            "Benefit": "Financial assistance of up to ₹15,000 in phases from birth to graduation.",
-            "Eligibility": "Families with girl child, annual income less than ₹3 Lakh."
+            "Benefit": "₹15,000 assistance in phases.",
+            "Eligibility": "Families with girl child, income < ₹3 Lakh."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "मुख्यमंत्री कन्या सुमंगला योजना",
+                "tag": "बालिका कल्याण",
+                "details": {
+                    "लाभ": "चरणों में ₹15,000 की सहायता।",
+                    "पात्रता": "बालिका वाले परिवार, आय ₹3 लाख से कम।"
+                }
+            },
+            "తెలుగు": {
+                "name": "ముఖ్యమంత్రి కన్యా సుమంగళ యోజన",
+                "tag": "బాలికా సంక్షేమం",
+                "details": {
+                    "ప్రయోజనం": "విడతలవారీగా ₹15,000 సహాయం.",
+                    "అర్హత": "ఆడపిల్ల ఉన్న కుటుంబాలు, ఆదాయం ₹3 లక్షల లోపు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "मुख्यमंत्री कन्या सुमंगला योजना",
+                "tag": "बालिका कल्याण",
+                "details": {
+                    "लाभ": "किश्त में ₹15,000 के मदद।",
+                    "पात्रता": "लड़की वाला परिवार, कमाई ₹3 लाख से कम।"
+                }
+            }
         }
     },
     {
@@ -162,8 +532,34 @@
         "url": "https://shakti.up.gov.in/",
         "state": "Uttar Pradesh",
         "details": {
-            "Benefit": "Safety, dignity, and empowerment programs for women.",
+            "Benefit": "Safety and empowerment programs.",
             "Eligibility": "Women across Uttar Pradesh."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "मिशन शक्ति",
+                "tag": "महिला सुरक्षा",
+                "details": {
+                    "लाभ": "सुरक्षा और सशक्तिकरण कार्यक्रम।",
+                    "पात्रता": "उत्तर प्रदेश की महिलाएं।"
+                }
+            },
+            "తెలుగు": {
+                "name": "మిషన్ శక్తి",
+                "tag": "మహిళా భద్రత",
+                "details": {
+                    "ప్రయోజనం": "భద్రత మరియు సాధికారత కార్యక్రమాలు.",
+                    "అర్హత": "ఉత్తర ప్రదేశ్ మహిళలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "मिशन शक्ति",
+                "tag": "महिला सुरक्षा",
+                "details": {
+                    "लाभ": "सुरक्षा अउर सशक्तिकरण कार्यक्रम।",
+                    "पात्रता": "उत्तर प्रदेश के मेहरारू लोग।"
+                }
+            }
         }
     },
     {
@@ -173,8 +569,34 @@
         "url": "https://mahaprisons.gov.in/",
         "state": "Maharashtra",
         "details": {
-            "Benefit": "Loan up to ₹50,000 for prisoners serving sentences > 3 years.",
-            "Eligibility": "Prisoners in Maharashtra jails (for family support/legal aid)."
+            "Benefit": "Loan up to ₹50,000 for prisoners.",
+            "Eligibility": "Prisoners in Maharashtra jails > 3 years."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "जीवहाला योजना",
+                "tag": "कैदी कल्याण",
+                "details": {
+                    "लाभ": "कैदियों के लिए ₹50,000 तक का ऋण।",
+                    "पात्रता": "महाराष्ट्र की जेलों में 3 साल से अधिक समय से बंद कैदी।"
+                }
+            },
+            "తెలుగు": {
+                "name": "జీవ్హాలా పథకం",
+                "tag": "ఖైదీల సంక్షేమం",
+                "details": {
+                    "ప్రయోజనం": "ఖైదీలకు ₹50,000 వరకు రుణం.",
+                    "అర్హత": "3 ఏళ్ల పైబడి శిక్ష అనుభవిస్తున్న ఖైదీలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "जीवहाला योजना",
+                "tag": "कैदी कल्याण",
+                "details": {
+                    "लाभ": "कैदी लोग खातिर ₹50,000 तक के लोन।",
+                    "पात्रता": "महाराष्ट्र जेल में 3 साल से ज्यादा से बंद कैदी।"
+                }
+            }
         }
     },
     {
@@ -184,30 +606,108 @@
         "url": "https://rhodisha.gov.in/",
         "state": "Odisha",
         "details": {
-            "Benefit": "Housing loan up to ₹3 Lakh with capital subsidy.",
-            "Eligibility": "Lower-income families in rural Odisha wanting to upgrade houses."
+            "Benefit": "Housing loan up to ₹3 Lakh.",
+            "Eligibility": "Rural families wanting to upgrade houses."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "मो घर योजना",
+                "tag": "आवास",
+                "details": {
+                    "लाभ": "₹3 लाख तक का होम लोन।",
+                    "पात्रता": "ग्रामीण परिवार जो घर सुधारना चाहते हैं।"
+                }
+            },
+            "తెలుగు": {
+                "name": "మో ఘరా యోజన",
+                "tag": "గృహనిర్మాణం",
+                "details": {
+                    "ప్రయోజనం": "₹3 లక్షల వరకు గృహ రుణం.",
+                    "అర్హత": "గ్రామీణ కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "मो घर योजना",
+                "tag": "आवास",
+                "details": {
+                    "लाभ": "₹3 लाख तक के होम लोन।",
+                    "पात्रता": "गाँव के परिवार जे घर बनावे के चाहत बा।"
+                }
+            }
         }
     },
     {
         "id": 18,
-        "name": "Indira Gandhi Shehari Rozgar Guarantee Yojana",
+        "name": "Indira Gandhi Shehari Rozgar Guarantee",
         "tag": "Employment",
         "url": "https://irgyurban.rajasthan.gov.in/",
         "state": "Rajasthan",
         "details": {
-            "Benefit": "100 days of guaranteed employment per year for urban families.",
-            "Eligibility": "Families living in urban local body limits of Rajasthan."
+            "Benefit": "100 days of guaranteed employment.",
+            "Eligibility": "Urban families in Rajasthan."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "इंदिरा गांधी शहरी रोजगार गारंटी",
+                "tag": "रोजगार",
+                "details": {
+                    "लाभ": "100 दिनों का गारंटीकृत रोजगार।",
+                    "पात्रता": "राजस्थान के शहरी परिवार।"
+                }
+            },
+            "తెలుగు": {
+                "name": "ఇందిరా గాంధీ పట్టణ ఉపాధి హామీ",
+                "tag": "ఉపాధి",
+                "details": {
+                    "ప్రయోజనం": "100 రోజుల ఉపాధి హామీ.",
+                    "అర్హత": "రాజస్థాన్ పట్టణ కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "इंदिरा गांधी शहरी रोजगार गारंटी",
+                "tag": "रोजगार",
+                "details": {
+                    "लाभ": "100 दिन के रोजगार गारंटी।",
+                    "पात्रता": "राजस्थान के शहर में रहे वाला परिवार।"
+                }
+            }
         }
     },
     {
         "id": 19,
-        "name": "Mukhya Mantri Parivar Samridhi Yojana",
+        "name": "Mukhya Mantri Parivar Samridhi",
         "tag": "Social Security",
         "url": "https://mmpsy.haryana.gov.in/",
         "state": "Haryana",
         "details": {
-            "Benefit": "Financial assistance of ₹6,000 per year for pension/insurance premiums.",
-            "Eligibility": "Families with annual income < ₹1.8 Lakh and land < 5 acres."
+            "Benefit": "₹6,000 per year assistance.",
+            "Eligibility": "Families with income < ₹1.8 Lakh."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "मुख्यमंत्री परिवार समृद्धि",
+                "tag": "सामाजिक सुरक्षा",
+                "details": {
+                    "लाभ": "₹6,000 प्रति वर्ष सहायता।",
+                    "पात्रता": "₹1.8 लाख से कम आय वाले परिवार।"
+                }
+            },
+            "తెలుగు": {
+                "name": "ముఖ్యమంత్రి పరివార్ సమృద్ధి",
+                "tag": "సామాజిక భద్రత",
+                "details": {
+                    "ప్రయోజనం": "ఏడాదికి ₹6,000 సహాయం.",
+                    "అర్హత": "ఆదాయం ₹1.8 లక్షల లోపు ఉన్న కుటుంబాలు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "मुख्यमंत्री परिवार समृद्धि",
+                "tag": "सामाजिक सुरक्षा",
+                "details": {
+                    "लाभ": "₹6,000 सालाना मदद।",
+                    "पात्रता": "₹1.8 लाख से कम कमाई वाला परिवार।"
+                }
+            }
         }
     },
     {
@@ -217,8 +717,34 @@
         "url": "https://npscra.nsdl.co.in/",
         "state": "Central",
         "details": {
-            "Benefit": "Guaranteed pension of ₹1,000 to ₹5,000 per month after age 60.",
-            "Eligibility": "Any citizen aged 18-40 years with a bank account."
+            "Benefit": "Pension ₹1k-5k/month after age 60.",
+            "Eligibility": "Citizens 18-40 years."
+        },
+        "translations": {
+            "हिन्दी": {
+                "name": "अटल पेंशन योजना (APY)",
+                "tag": "पेंशन",
+                "details": {
+                    "लाभ": "60 की उम्र के बाद ₹1000-5000/माह पेंशन।",
+                    "पात्रता": "18-40 वर्ष के नागरिक।"
+                }
+            },
+            "తెలుగు": {
+                "name": "అటల్ పెన్షన్ యోజన (APY)",
+                "tag": "పెన్షన్",
+                "details": {
+                    "ప్రయోజనం": "60 ఏళ్ల తర్వాత నెలకు ₹1000-₹5000 పెన్షన్.",
+                    "అర్హత": "18-40 ఏళ్లు ఉన్న పౌరులు."
+                }
+            },
+            "Bhojpuri": {
+                "name": "अटल पेंशन योजना (APY)",
+                "tag": "पेंशन",
+                "details": {
+                    "लाभ": "60 साल के बाद ₹1000-5000/महीना पेंशन।",
+                    "पात्रता": "18-40 साल के नागरिक।"
+                }
+            }
         }
     }
 ]

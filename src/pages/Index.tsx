@@ -49,22 +49,23 @@ const Index = () => {
   return (
     <>
       {/* Desktop Layout (md+) */}
+      {/* Desktop Layout (md+) */}
       <div className="hidden md:flex h-screen w-full overflow-hidden bg-gray-50">
-        {/* Left Sidebar (Fixed) */}
-        <div className="w-64 flex-shrink-0 h-full border-r border-gray-200 bg-white z-10">
+        {/* COLUMN 1: Sidebar (Desktop Only) */}
+        <aside className="w-64 flex-col fixed inset-y-0 left-0 z-50 bg-green-900 text-white hidden md:flex">
           <AppSidebar activeView={activeView} onViewChange={setActiveView} />
-        </div>
+        </aside>
 
-        {/* Center Main Content (Fluid) */}
-        <main className="flex-1 min-w-0 h-full flex flex-col relative overflow-hidden">
+        {/* COLUMN 2: Main Chat (Center) */}
+        <main className="flex-1 flex flex-col md:pl-64 lg:pr-80 relative w-full h-full">
           {renderMainContent()}
         </main>
 
-        {/* Right Info Panel (Fixed) */}
+        {/* COLUMN 3: Right Panel (Desktop Only) */}
         {activeView === "chat" && (
-          <div className="hidden lg:block w-80 flex-shrink-0 h-full border-l border-gray-200 bg-white z-10 overflow-y-auto">
+          <aside className="hidden lg:block w-80 fixed inset-y-0 right-0 border-l border-gray-200 bg-white z-40 h-full overflow-y-auto">
             <InfoPanel />
-          </div>
+          </aside>
         )}
       </div>
 

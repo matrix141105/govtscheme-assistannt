@@ -1,0 +1,64 @@
+[
+    {
+        "id": 1,
+        "name": "PM Kisan Samman Nidhi",
+        "tag": "Agriculture",
+        "url": "https://pmkisan.gov.in/",
+        "details": {
+            "Benefit": "₹6,000 per year in 3 equal installments.",
+            "Eligibility": "Landholding farmer families with cultivable land.",
+            "Process": "Register at pmkisan.gov.in."
+        }
+    },
+    {
+        "id": 2,
+        "name": "Rythu Bharosa (Rythu Bandhu)",
+        "tag": "Agriculture",
+        "url": "https://prajapalana.telangana.gov.in/",
+        "details": {
+            "Benefit": "₹1,250 per month directly to bank account (Example benefit, confirm official details).",
+            "Eligibility": "Farmers with land ownership.",
+            "Documents": "Samagra ID, Aadhaar Card, Bank Account."
+        }
+    },
+    {
+        "id": 3,
+        "name": "Pradhan Mantri Awas Yojana (PMAY)",
+        "tag": "Housing",
+        "url": "https://pmaymis.gov.in/",
+        "details": {
+            "Benefit": "Subsidy for building/purchasing affordable houses (up to ₹2.67 Lakh).",
+            "Eligibility": "Families with no pucca house."
+        }
+    },
+    {
+        "id": 4,
+        "name": "Ayushman Bharat (PM-JAY)",
+        "tag": "Healthcare",
+        "url": "https://pmjay.gov.in/",
+        "details": {
+            "Benefit": "Health cover of ₹5 Lakh per family per year for secondary/tertiary care.",
+            "Eligibility": "Low-income families found in the SECC database."
+        }
+    },
+    {
+        "id": 5,
+        "name": "National Scholarship Portal (NSP)",
+        "tag": "Education",
+        "url": "https://scholarships.gov.in/",
+        "details": {
+            "Benefit": "Financial assistance for education fees and maintenance allowance.",
+            "Eligibility": "Students with family income < ₹2.5 Lakh per year (varies by specific scheme)."
+        }
+    },
+    {
+        "id": 6,
+        "name": "PM Vishwakarma Yojana",
+        "tag": "Skill Development",
+        "url": "https://pmvishwakarma.gov.in/",
+        "details": {
+            "Benefit": "Collateral-free loans up to ₹3 Lakh at 5% interest, tool kit incentive, and skill training.",
+            "Eligibility": "Artisans and craftspeople (18+ years) working with hands/tools."
+        }
+    }
+]

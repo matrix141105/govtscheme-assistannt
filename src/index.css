@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 10% 97%;
+    --foreground: 160 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 10%;
+
+    --primary: 152 60% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 15% 92%;
+    --secondary-foreground: 160 30% 15%;
+
+    --muted: 150 10% 94%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 152 45% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 150 15% 88%;
+    --input: 150 15% 88%;
+    --ring: 152 60% 36%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 152 55% 22%;
+    --sidebar-foreground: 150 20% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 152 55% 22%;
+    --sidebar-accent: 152 50% 28%;
+    --sidebar-accent-foreground: 150 20% 95%;
+    --sidebar-border: 152 45% 30%;
+    --sidebar-ring: 152 60% 50%;
+    --sidebar-muted: 152 30% 60%;
+
+    --chat-user: 152 50% 42%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-bot: 150 15% 94%;
+    --chat-bot-foreground: 160 30% 12%;
+
+    --gov-gold: 43 96% 56%;
+    --gov-gold-foreground: 43 80% 15%;
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 150 15% 92%;
+    --card: 160 20% 11%;
+    --card-foreground: 150 15% 92%;
+    --popover: 160 20% 11%;
+    --popover-foreground: 150 15% 92%;
+    --primary: 152 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 160 15% 16%;
+    --secondary-foreground: 150 15% 92%;
+    --muted: 160 15% 16%;
+    --muted-foreground: 150 10% 55%;
+    --accent: 152 45% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 160 15% 20%;
+    --input: 160 15% 20%;
+    --ring: 152 55% 45%;
+    --sidebar-background: 160 25% 6%;
+    --sidebar-foreground: 150 15% 85%;
+    --sidebar-primary: 152 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 160 20% 12%;
+    --sidebar-accent-foreground: 150 15% 85%;
+    --sidebar-border: 160 15% 15%;
+    --sidebar-ring: 152 55% 45%;
+    --sidebar-muted: 150 10% 50%;
+    --chat-user: 152 50% 38%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-bot: 160 15% 16%;
+    --chat-bot-foreground: 150 15% 90%;
+    --gov-gold: 43 90% 50%;
+    --gov-gold-foreground: 43 80% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+  }
+}

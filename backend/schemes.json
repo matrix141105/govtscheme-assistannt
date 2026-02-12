@@ -88,5 +88,137 @@
             "Benefit": "₹2,000 monthly assistance to the woman head of the family.",
             "Eligibility": "Woman head of family in Antyodaya/BPL/APL cards."
         }
+    },
+    {
+        "id": 9,
+        "name": "Kalaignar Magalir Urimai Thogai",
+        "tag": "Social Welfare",
+        "url": "https://kmut.tn.gov.in/",
+        "state": "Tamil Nadu",
+        "details": {
+            "Benefit": "₹1,000 monthly financial assistance to eligible women heads of families.",
+            "Eligibility": "Women heads of families with annual family income less than ₹2.5 Lakh."
+        }
+    },
+    {
+        "id": 10,
+        "name": "Ladli Behna Yojana",
+        "tag": "Women Empowerment",
+        "url": "https://cmladlibahna.mp.gov.in/",
+        "state": "Madhya Pradesh",
+        "details": {
+            "Benefit": "₹1,250 per month directly to bank accounts of eligible women.",
+            "Eligibility": "Married women aged 21-60 years with family income less than ₹2.5 Lakh."
+        }
+    },
+    {
+        "id": 11,
+        "name": "Kanyashree Prakalpa",
+        "tag": "Education & Women",
+        "url": "https://www.wbkanyashree.gov.in/",
+        "state": "West Bengal",
+        "details": {
+            "Benefit": "Annual scholarship of ₹1,000 (K1) and one-time grant of ₹25,000 (K2).",
+            "Eligibility": "Unmarried girls aged 13-18 years enrolled in school."
+        }
+    },
+    {
+        "id": 12,
+        "name": "Dalit Bandhu",
+        "tag": "Social Welfare",
+        "url": "https://dalitbandhu.telangana.gov.in/",
+        "state": "Telangana",
+        "details": {
+            "Benefit": "One-time grant of ₹10 Lakh per family for entrepreneurship/business.",
+            "Eligibility": "Dalit families in Telangana."
+        }
+    },
+    {
+        "id": 13,
+        "name": "Arogyasri",
+        "tag": "Healthcare",
+        "url": "https://ysrarogyasri.ap.gov.in/",
+        "state": "Andhra Pradesh",
+        "details": {
+            "Benefit": "Free healthcare coverage up to ₹5 Lakh (or more) for identified diseases.",
+            "Eligibility": "Families with Rice Cards (BPL) in Andhra Pradesh."
+        }
+    },
+    {
+        "id": 14,
+        "name": "Mukhyamantri Kanya Sumangala Yojana",
+        "tag": "Girl Child Welfare",
+        "url": "https://mksy.up.gov.in/",
+        "state": "Uttar Pradesh",
+        "details": {
+            "Benefit": "Financial assistance of up to ₹15,000 in phases from birth to graduation.",
+            "Eligibility": "Families with girl child, annual income less than ₹3 Lakh."
+        }
+    },
+    {
+        "id": 15,
+        "name": "Mission Shakti",
+        "tag": "Women Safety",
+        "url": "https://shakti.up.gov.in/",
+        "state": "Uttar Pradesh",
+        "details": {
+            "Benefit": "Safety, dignity, and empowerment programs for women.",
+            "Eligibility": "Women across Uttar Pradesh."
+        }
+    },
+    {
+        "id": 16,
+        "name": "Jivhala Scheme",
+        "tag": "Prisoner Welfare",
+        "url": "https://mahaprisons.gov.in/",
+        "state": "Maharashtra",
+        "details": {
+            "Benefit": "Loan up to ₹50,000 for prisoners serving sentences > 3 years.",
+            "Eligibility": "Prisoners in Maharashtra jails (for family support/legal aid)."
+        }
+    },
+    {
+        "id": 17,
+        "name": "Mo Ghara Yojana",
+        "tag": "Housing",
+        "url": "https://rhodisha.gov.in/",
+        "state": "Odisha",
+        "details": {
+            "Benefit": "Housing loan up to ₹3 Lakh with capital subsidy.",
+            "Eligibility": "Lower-income families in rural Odisha wanting to upgrade houses."
+        }
+    },
+    {
+        "id": 18,
+        "name": "Indira Gandhi Shehari Rozgar Guarantee Yojana",
+        "tag": "Employment",
+        "url": "https://irgyurban.rajasthan.gov.in/",
+        "state": "Rajasthan",
+        "details": {
+            "Benefit": "100 days of guaranteed employment per year for urban families.",
+            "Eligibility": "Families living in urban local body limits of Rajasthan."
+        }
+    },
+    {
+        "id": 19,
+        "name": "Mukhya Mantri Parivar Samridhi Yojana",
+        "tag": "Social Security",
+        "url": "https://mmpsy.haryana.gov.in/",
+        "state": "Haryana",
+        "details": {
+            "Benefit": "Financial assistance of ₹6,000 per year for pension/insurance premiums.",
+            "Eligibility": "Families with annual income < ₹1.8 Lakh and land < 5 acres."
+        }
+    },
+    {
+        "id": 20,
+        "name": "Atal Pension Yojana (APY)",
+        "tag": "Pension",
+        "url": "https://npscra.nsdl.co.in/",
+        "state": "Central",
+        "details": {
+            "Benefit": "Guaranteed pension of ₹1,000 to ₹5,000 per month after age 60.",
+            "Eligibility": "Any citizen aged 18-40 years with a bank account."
+        }
     }
 ]

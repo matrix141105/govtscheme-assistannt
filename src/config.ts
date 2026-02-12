@@ -1,4 +1,4 @@
-// centralized API configuration
+// centralized API configuration - Verified Global Fix
 // This allows switching between localhost, local network IP, and production URLs easily.
 
 const getApiBaseUrl = () => {

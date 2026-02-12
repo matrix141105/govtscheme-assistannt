@@ -33,20 +33,17 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
 
   return (
     <aside
-      className={`flex flex-col bg-sidebar text-sidebar-foreground transition-all duration-300 ${collapsed ? "w-16" : "w-64"
-        } shrink-0`}
+      className={`hidden md:flex flex-col bg-green-900 text-white transition-all duration-300 w-64 h-screen shrink-0`}
     >
       {/* Header */}
-      <div className="flex items-center gap-3 px-4 py-5 border-b border-sidebar-border">
-        <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-sidebar-accent">
-          <Globe className="w-5 h-5 text-sidebar-foreground" />
+      <div className="flex items-center gap-3 px-4 py-5 border-b border-green-800">
+        <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-green-800 text-white">
+          <Globe className="w-5 h-5" />
         </div>
-        {!collapsed && (
-          <div>
-            <h1 className="text-lg font-display font-bold text-sidebar-primary">GovAssist AI</h1>
-            <p className="text-xs text-sidebar-muted">Your Government Helper</p>
-          </div>
-        )}
+        <div>
+          <h1 className="text-lg font-display font-bold text-white">GovAssist AI</h1>
+          <p className="text-xs text-green-200">Your Government Helper</p>
+        </div>
       </div>
 
       {/* Nav Items */}
@@ -57,57 +54,53 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
             <button
               key={item.view}
               onClick={() => (item.view === "profile" ? onViewChange("profile") : onViewChange(item.view))}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
-                ? "bg-green-100 text-green-700"
-                : "text-gray-600 hover:bg-green-50 hover:text-green-700"
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer shadow-none ${isActive
+                ? "bg-white text-green-900 font-bold shadow-md"
+                : "text-green-100 hover:bg-green-800 hover:text-white"
                 }`}
             >
               <item.icon className="w-5 h-5 shrink-0" />
-              {!collapsed && <span>{item.title}</span>}
+              <span>{item.title}</span>
             </button>
           );
         })}
       </nav>
 
-      {/* Auth Section - Moved to Middle */}
-      {!collapsed && (
-        <div className="px-3 py-4 border-t border-sidebar-border/50">
-          {isAuthenticated ? (
-            <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-sidebar-accent/20 border border-sidebar-border/50">
-              <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs shrink-0">
-                {user?.name?.charAt(0).toUpperCase()}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">{user?.name}</p>
-                <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
-              </div>
+      {/* Auth Section */}
+      <div className="px-3 py-4 border-t border-green-800">
+        {isAuthenticated ? (
+          <div className="flex items-center gap-3 px-3 py-3 rounded-xl bg-green-800/50 border border-green-700/50">
+            <div className="h-8 w-8 rounded-full bg-green-700 flex items-center justify-center text-white font-bold text-xs shrink-0">
+              {user?.name?.charAt(0).toUpperCase()}
             </div>
-          ) : (
-            <Link to="/login" className="flex items-center gap-2 justify-center w-full px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">
-              <LogIn className="w-4 h-4" />
-              Login / Signup
-            </Link>
-          )}
-        </div>
-      )}
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium truncate text-white">{user?.name}</p>
+              <p className="text-xs text-green-200 truncate">{user?.email}</p>
+            </div>
+          </div>
+        ) : (
+          <Link to="/login" className="flex items-center gap-2 justify-center w-full px-3 py-2 rounded-lg bg-white text-green-900 text-sm font-bold hover:bg-green-50 transition-colors shadow-sm">
+            <LogIn className="w-4 h-4" />
+            Login / Signup
+          </Link>
+        )}
+      </div>
 
       <div className="mt-auto">
         {/* State Selector */}
         <div className="px-3 pb-2 relative">
           <button
             onClick={() => setStateOpen(!stateOpen)}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/80 hover:bg-sidebar-accent/50 transition-colors"
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-green-100 hover:bg-green-800 hover:text-white transition-colors"
           >
             <MapPin className="w-5 h-5 shrink-0" />
-            {!collapsed && (
-              <>
-                <span className="flex-1 text-left truncate">{selectedState}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${stateOpen ? "rotate-180" : ""}`} />
-              </>
-            )}
+            <>
+              <span className="flex-1 text-left truncate">{selectedState}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${stateOpen ? "rotate-180" : ""}`} />
+            </>
           </button>
           {stateOpen && (
-            <div className="absolute bottom-full left-3 right-3 mb-1 bg-popover text-popover-foreground rounded-lg shadow-lg border border-border z-50 overflow-hidden max-h-60 overflow-y-auto">
+            <div className="absolute bottom-full left-3 right-3 mb-1 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden max-h-60 overflow-y-auto">
               {states.map((st) => (
                 <button
                   key={st}
@@ -115,7 +108,7 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
                     setSelectedState(st as any);
                     setStateOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${selectedState === st ? "bg-muted font-medium" : ""
+                  className={`w-full text-left px-4 py-2.5 text-sm hover:bg-gray-100 transition-colors ${selectedState === st ? "bg-green-50 text-green-900 font-medium" : ""
                     }`}
                 >
                   {st}
@@ -129,18 +122,16 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
         <div className="px-3 pb-4 relative">
           <button
             onClick={() => setLangOpen(!langOpen)}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/80 hover:bg-sidebar-accent/50 transition-colors"
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-green-100 hover:bg-green-800 hover:text-white transition-colors"
           >
             <Globe className="w-5 h-5 shrink-0" />
-            {!collapsed && (
-              <>
-                <span className="flex-1 text-left">{language}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${langOpen ? "rotate-180" : ""}`} />
-              </>
-            )}
+            <>
+              <span className="flex-1 text-left">{language}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${langOpen ? "rotate-180" : ""}`} />
+            </>
           </button>
           {langOpen && (
-            <div className="absolute bottom-full left-3 right-3 mb-1 bg-popover text-popover-foreground rounded-lg shadow-lg border border-border z-50 overflow-hidden">
+            <div className="absolute bottom-full left-3 right-3 mb-1 bg-white text-gray-900 rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden">
               {languages.map((lang) => (
                 <button
                   key={lang}
@@ -148,7 +139,7 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
                     setLanguage(lang as any);
                     setLangOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${language === lang ? "bg-muted font-medium" : ""
+                  className={`w-full text-left px-4 py-2.5 text-sm hover:bg-gray-100 transition-colors ${language === lang ? "bg-green-50 text-green-900 font-medium" : ""
                     }`}
                 >
                   {lang}

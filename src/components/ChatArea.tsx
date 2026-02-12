@@ -231,7 +231,7 @@ export function ChatArea() {
       )}
 
       {/* Main Chat Area */}
-      <div className="flex flex-col flex-1 min-w-0 h-full">
+      <div className="flex flex-col flex-1 min-w-0 h-full relative">
         {/* Header */}
         <header className="flex items-center gap-3 px-6 py-4 border-b border-border bg-card">
           <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
@@ -248,7 +248,7 @@ export function ChatArea() {
         </header>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin">
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin pb-32">
           {messages.map((msg) => (
             <div key={msg.id} className={`flex gap-3 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
               {msg.sender === "bot" && (
@@ -296,7 +296,7 @@ export function ChatArea() {
         </div>
 
         {/* Input */}
-        <div className="px-6 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border bg-card">
+        <div className="absolute bottom-0 left-0 right-0 px-6 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border bg-card">
           <div className="flex items-center gap-2 bg-muted rounded-xl px-4 py-2">
             <input
               type="text"

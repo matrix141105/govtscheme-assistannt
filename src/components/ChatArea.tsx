@@ -231,106 +231,110 @@ export function ChatArea() {
       )}
 
       {/* Main Chat Area */}
-      <div className="flex flex-col flex-1 min-w-0 h-full relative">
-        {/* Header */}
-        <header className="flex items-center gap-3 px-6 py-4 border-b border-border bg-card">
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-            <Bot className="w-4 h-4 text-primary" />
-          </div>
-          <div>
-            <h2 className="font-display font-bold text-foreground">Government Services Assistant</h2>
-            <p className="text-xs text-muted-foreground">Powered by GovAssist AI • Always available</p>
-          </div>
-          <div className="ml-auto flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs text-muted-foreground">Online</span>
-          </div>
-        </header>
+      <div className="flex flex-col flex-1 min-w-0 h-full bg-gray-50/50">
 
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin pb-32">
-          {messages.map((msg) => (
-            <div key={msg.id} className={`flex gap-3 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-              {msg.sender === "bot" && (
+        {/* Desktop Centered Container */}
+        <div className="flex flex-col flex-1 w-full md:max-w-4xl md:mx-auto h-full bg-white md:shadow-sm md:border-x border-gray-100">
+          {/* Header */}
+          <header className="flex-shrink-0 flex items-center gap-3 px-6 py-4 border-b border-border bg-white z-10">
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+              <Bot className="w-4 h-4 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-display font-bold text-foreground">Government Services Assistant</h2>
+              <p className="text-xs text-muted-foreground">Powered by GovAssist AI • Always available</p>
+            </div>
+            <div className="ml-auto flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs text-muted-foreground">Online</span>
+            </div>
+          </header>
+
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scrollbar-thin">
+            {messages.map((msg) => (
+              <div key={msg.id} className={`flex gap-3 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
+                {msg.sender === "bot" && (
+                  <div className="flex items-start">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <Bot className="w-4 h-4 text-primary" />
+                    </div>
+                  </div>
+                )}
+                <div
+                  className={`max-w-[85%] px-5 py-4 rounded-2xl text-[15px] leading-7 shadow-sm whitespace-pre-wrap ${msg.sender === "user"
+                    ? "bg-chat-user text-chat-user-foreground rounded-br-md"
+                    : "bg-chat-bot text-chat-bot-foreground rounded-bl-md"
+                    }`}
+                >
+                  {msg.text}
+                </div>
+                {msg.sender === "user" && (
+                  <div className="flex items-start">
+                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center shrink-0">
+                      <UserCircle className="w-4 h-4 text-muted-foreground" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {isLoading && (
+              <div className="flex gap-3 justify-start animate-in fade-in duration-300">
                 <div className="flex items-start">
                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Bot className="w-4 h-4 text-primary" />
                   </div>
                 </div>
-              )}
-              <div
-                className={`max-w-[85%] px-5 py-4 rounded-2xl text-[15px] leading-7 shadow-sm whitespace-pre-wrap ${msg.sender === "user"
-                  ? "bg-chat-user text-chat-user-foreground rounded-br-md"
-                  : "bg-chat-bot text-chat-bot-foreground rounded-bl-md"
-                  }`}
-              >
-                {msg.text}
-              </div>
-              {msg.sender === "user" && (
-                <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center shrink-0">
-                    <UserCircle className="w-4 h-4 text-muted-foreground" />
+                <div className="bg-chat-bot text-chat-bot-foreground rounded-bl-md px-5 py-4 rounded-2xl shadow-sm">
+                  <div className="flex gap-1.5 items-center h-7 px-1">
+                    <span className="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                    <span className="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                    <span className="w-2 h-2 bg-primary/60 rounded-full animate-bounce"></span>
                   </div>
                 </div>
-              )}
-            </div>
-          ))}
-
-          {isLoading && (
-            <div className="flex gap-3 justify-start animate-in fade-in duration-300">
-              <div className="flex items-start">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Bot className="w-4 h-4 text-primary" />
-                </div>
               </div>
-              <div className="bg-chat-bot text-chat-bot-foreground rounded-bl-md px-5 py-4 rounded-2xl shadow-sm">
-                <div className="flex gap-1.5 items-center h-7 px-1">
-                  <span className="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                  <span className="w-2 h-2 bg-primary/60 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                  <span className="w-2 h-2 bg-primary/60 rounded-full animate-bounce"></span>
-                </div>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
 
-        {/* Input */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] border-t border-border bg-card">
-          <div className="flex items-center gap-2 bg-muted rounded-xl px-4 py-2">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !isLoading) {
-                  e.preventDefault();
-                  handleSend();
-                }
-              }}
-              placeholder={isLoading ? "Waiting for response..." : "Ask about government schemes..."}
-              disabled={isLoading}
-              className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:opacity-50"
-            />
-            <button
-              onClick={() => setIsRecording(!isRecording)}
-              disabled={isLoading}
-              className={`p-2 rounded-lg transition-colors ${isRecording ? "bg-destructive text-destructive-foreground" : "text-muted-foreground hover:text-foreground hover:bg-background"
-                } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
-              title={isRecording ? "Stop recording" : "Start voice input"}
-            >
-              <Mic className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleSend}
-              disabled={isLoading || !input.trim()}
-              className={`p-2 rounded-lg transition-colors ${isLoading || !input.trim()
-                ? "bg-muted text-muted-foreground cursor-not-allowed"
-                : "bg-primary text-primary-foreground hover:bg-primary/90"
-                }`}
-            >
-              <Send className="w-5 h-5" />
-            </button>
+          {/* Input */}
+          <div className="flex-shrink-0 px-4 md:px-6 py-4 border-t border-border bg-white">
+            <div className="flex items-center gap-2 bg-muted rounded-xl px-4 py-2">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !isLoading) {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+                placeholder={isLoading ? "Waiting for response..." : "Ask about government schemes..."}
+                disabled={isLoading}
+                className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:opacity-50"
+              />
+              <button
+                onClick={() => setIsRecording(!isRecording)}
+                disabled={isLoading}
+                className={`p-2 rounded-lg transition-colors ${isRecording ? "bg-destructive text-destructive-foreground" : "text-muted-foreground hover:text-foreground hover:bg-background"
+                  } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+                title={isRecording ? "Stop recording" : "Start voice input"}
+              >
+                <Mic className="w-5 h-5" />
+              </button>
+              <button
+                onClick={handleSend}
+                disabled={isLoading || !input.trim()}
+                className={`p-2 rounded-lg transition-colors ${isLoading || !input.trim()
+                  ? "bg-muted text-muted-foreground cursor-not-allowed"
+                  : "bg-primary text-primary-foreground hover:bg-primary/90"
+                  }`}
+              >
+                <Send className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

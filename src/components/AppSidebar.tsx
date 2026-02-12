@@ -58,8 +58,8 @@ export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
               key={item.view}
               onClick={() => (item.view === "profile" ? onViewChange("profile") : onViewChange(item.view))}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
-                ? "bg-sidebar-accent text-sidebar-primary"
-                : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+                ? "bg-green-100 text-green-700"
+                : "text-gray-600 hover:bg-green-50 hover:text-green-700"
                 }`}
             >
               <item.icon className="w-5 h-5 shrink-0" />

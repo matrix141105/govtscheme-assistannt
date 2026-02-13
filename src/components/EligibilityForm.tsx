@@ -66,6 +66,8 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const [error, setError] = useState<string | null>(null);
+
   const handleCheck = async () => {
     if (!formData.age || !formData.income || !formData.category || !formData.occupation) {
       toast.error("Please fill in all details");
@@ -74,6 +76,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
 
     setLoading(true);
     setResults(null);
+    setError(null);
 
     try {
       const response = await apiFetch("/api/check-eligibility", {
@@ -87,20 +90,26 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
         }),
       });
 
-      if (!response.ok) throw new Error("Failed to check eligibility");
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(`Server Error: ${response.status} - ${errText}`);
+      }
 
       const data = await response.json();
+      // Ensure we handle various response shapes or nulls logic
       if (Array.isArray(data)) {
         setResults(data);
-      } else if (data.schemes) {
+      } else if (data && data.schemes) {
         setResults(data.schemes);
       } else {
         setResults([]);
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      toast.error("Error checking eligibility. Please try again.");
+      const msg = error.message || "Error checking eligibility.";
+      setError(msg);
+      toast.error(msg);
     } finally {
       setLoading(false);
     }
@@ -228,6 +237,12 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
                   <p className="text-sm font-medium text-muted-foreground">No eligible schemes found based on your details.</p>
                 </div>
               )}
+            </div>
+          )}
+
+          {error && (
+            <div className="p-4 rounded-xl border border-red-200 bg-red-50 text-red-900 text-sm font-medium text-center">
+              {error}
             </div>
           )}
 

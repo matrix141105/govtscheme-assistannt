@@ -212,9 +212,12 @@ def delete_chat_session(session_id: int, db: Session = Depends(database.get_db),
 
 # --- 2. THE BRAIN (KNOWLEDGE BASE) ---
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SCHEMES_FILE = os.path.join(BASE_DIR, "schemes.json")
+
 def load_knowledge_base():
     try:
-        with open("schemes.json", "r", encoding="utf-8") as f:
+        with open(SCHEMES_FILE, "r", encoding="utf-8") as f:
             schemes = json.load(f)
         
         kb_text = ""
@@ -225,10 +228,10 @@ def load_knowledge_base():
             kb_text += "\n"
         return kb_text
     except Exception as e:
-        print(f"Error loading schemes.json: {e}")
+        print(f"Error loading schemes.json from {SCHEMES_FILE}: {e}")
         return "Error: Could not load knowledge base."
 
-KNOWLEDGE_BASE = load_knowledge_base()
+KNOWLEDGE_BASE = load_knowledge_base() # Initial load
 
 def search_google(query):
     print(f"DEBUG: Searching Google (via DDG) for: {query}")
@@ -288,7 +291,7 @@ async def root():
 @app.get("/api/schemes")
 async def get_schemes():
     try:
-        with open("schemes.json", "r", encoding="utf-8") as f:
+        with open(SCHEMES_FILE, "r", encoding="utf-8") as f:
             schemes = json.load(f)
         return schemes
     except Exception as e:
@@ -355,7 +358,12 @@ async def check_eligibility(request: EligibilityRequest):
         )
 
         response_text = chat_completion.choices[0].message.content
-        print(f"DEBUG: LLM Response: {response_text}")
+        
+        # Clean up markdown code blocks if present
+        if "```" in response_text:
+            response_text = response_text.replace("```json", "").replace("```", "").strip()
+
+        print(f"DEBUG: LLM Response (Cleaned): {response_text}")
         return json.loads(response_text)
 
     except Exception as e:

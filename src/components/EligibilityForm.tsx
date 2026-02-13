@@ -116,7 +116,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
   };
 
   return (
-    <div className="flex flex-col flex-1 min-w-0">
+    <div className="flex flex-col flex-1 min-w-0 h-full">
       <header className="flex items-center gap-3 px-6 py-4 border-b border-border bg-card">
         <button onClick={onBack} className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors">
           <ArrowLeft className="w-5 h-5" />

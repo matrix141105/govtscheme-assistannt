@@ -303,29 +303,44 @@ class EligibilityRequest(BaseModel):
 @app.post("/api/check-eligibility")
 async def check_eligibility(request: EligibilityRequest):
     try:
-        print(f"DEBUG: KNOWLEDGE_BASE length: {len(KNOWLEDGE_BASE)}")
+        # Reload KB to ensure freshness
+        current_kb = load_knowledge_base()
+        print(f"DEBUG: Checking eligibility for {request.age}, {request.income}, {request.occupation} against {len(current_kb)} chars of data")
 
         # Construct the prompt
         prompt = f"""
-        You are a government scheme eligibility expert. 
-        Based on the following user details, check which schemes they are eligible for from the Knowledge Base.
+        You are a beneficial government scheme eligibility assistant.
+        Your goal is to find ANY potential matches for the user from the Knowledge Base below.
 
         User Details:
         - Age: {request.age}
         - Annual Income: ₹{request.income}
-        - Category: {request.category}
+        - Category: {request.category} (General/OBC/SC/ST)
         - Occupation: {request.occupation}
 
-        Knowledge Base:
-        {KNOWLEDGE_BASE}
+        Knowledge Base (List of Schemes):
+        {current_kb}
 
-        Task:
-        1. Analyze eligibility for EACH scheme in the Knowledge Base.
-        2. Be lenient: If the user meets the BASIC criteria (like occupation or income level), consider them ELIGIBLE.
-        3. Return a JSON object containing a list of schemes.
-        4. Format: {{ "schemes": [ {{ "name": "Scheme Name", "reason": "Reason for eligibility (keep it short)" }} ] }}
-        5. If absolutely no schemes match, return {{ "schemes": [] }}.
-        6. Return ONLY the JSON.
+        Instructions:
+        1. Compare the user's details against the eligibility criteria of EACH scheme.
+        2. BE LENIENT: 
+           - If the scheme mentions "Farmers" and the user is a "Farmer" (or similar), match it.
+           - If income is close or undefined in the scheme, lean towards eligible.
+           - If category matches OR is not specified in requirements, consider eligible.
+        3. IGNORE state-specific restrictions for now (assume All India eligibility for this check).
+        4. Return a JSON object with a list of eligible schemes.
+        
+        Output Format (JSON Only):
+        {{
+            "schemes": [
+                {{
+                    "name": "Exact Scheme Name From List",
+                    "reason": "Brief reason why (e.g. 'You are a farmer', 'Income is below limit')"
+                }}
+            ]
+        }}
+        
+        If no schemes match, return {{ "schemes": [] }}.
         """
 
         chat_completion = client.chat.completions.create(

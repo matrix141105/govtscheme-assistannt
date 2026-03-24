@@ -44,6 +44,78 @@ export function ChatArea() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isSendingRef = useRef(false);
+  const recognitionRef = useRef<any>(null);
+
+  // Initialize Speech Recognition
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        
+        recognition.onresult = (event: any) => {
+          let currentTranscript = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+              currentTranscript += event.results[i][0].transcript;
+            }
+          }
+          if (currentTranscript) {
+            setInput((prev) => prev + (prev.length > 0 && !prev.endsWith(' ') ? ' ' : '') + currentTranscript.trim());
+          }
+        };
+
+        recognition.onerror = (event: any) => {
+          console.error("Speech recognition error", event.error);
+          setIsRecording(false);
+        };
+
+        recognition.onend = () => {
+          setIsRecording(false);
+        };
+
+        recognitionRef.current = recognition;
+      }
+    }
+    
+    return () => {
+      if (recognitionRef.current) {
+        try { recognitionRef.current.stop(); } catch (e) {}
+      }
+    };
+  }, []);
+
+  // Update language when user changes app language
+  useEffect(() => {
+    if (recognitionRef.current) {
+      if (language === "हिन्दी" || language === "Bhojpuri") {
+        recognitionRef.current.lang = "hi-IN";
+      } else if (language === "తెలుగు") {
+        recognitionRef.current.lang = "te-IN";
+      } else {
+        recognitionRef.current.lang = "en-IN";
+      }
+    }
+  }, [language]);
+
+  // Handle Recording State
+  useEffect(() => {
+    if (!recognitionRef.current) return;
+
+    if (isRecording) {
+      try {
+        recognitionRef.current.start();
+      } catch (err) {
+        console.error("Failed to start recording", err);
+      }
+    } else {
+      try {
+        recognitionRef.current.stop();
+      } catch (e) {}
+    }
+  }, [isRecording]);
 
   // Fetch Chat Sessions on Mount (if logged in)
   useEffect(() => {
@@ -324,9 +396,16 @@ export function ChatArea() {
                 className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:opacity-50"
               />
               <button
-                onClick={() => setIsRecording(!isRecording)}
+                onClick={() => {
+                  const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+                  if (!SpeechRecognition) {
+                    toast.error(t("Speech recognition is not supported in this browser."));
+                    return;
+                  }
+                  setIsRecording(!isRecording);
+                }}
                 disabled={isLoading}
-                className={`p-2 rounded-lg transition-colors ${isRecording ? "bg-destructive text-destructive-foreground" : "text-muted-foreground hover:text-foreground hover:bg-background"
+                className={`p-2 rounded-lg transition-colors ${isRecording ? "bg-destructive text-destructive-foreground animate-pulse" : "text-muted-foreground hover:text-foreground hover:bg-background"
                   } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
                 title={isRecording ? "Stop recording" : "Start voice input"}
               >

@@ -97,7 +97,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 
 @app.get("/api/auth/me", response_model=UserResponse)
 def read_users_me(current_user: models.User = Depends(auth.get_current_user)):
-    return current_user
+    return cu   rrent_user
 
 # --- PROFILE ENDPOINTS ---
 
@@ -353,7 +353,7 @@ async def check_eligibility(request: EligibilityRequest):
                     "content": prompt,
                 }
             ],
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-8b-instant",  # Updated to a model with a larger context and free tier limit
             response_format={"type": "json_object"},
         )
 
@@ -368,6 +368,9 @@ async def check_eligibility(request: EligibilityRequest):
 
     except Exception as e:
         print(f"Error checking eligibility: {e}")
+        error_msg = str(e).lower()
+        if "rate limit" in error_msg or "quota" in error_msg or "429" in error_msg:
+             raise HTTPException(status_code=429, detail="AI Service is currently busy (Rate Limit). Please wait a minute and try again.")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/chat", response_model=ChatResponse)

@@ -49,6 +49,11 @@ export async function apiFetch(endpoint: string, options: FetchOptions = {}) {
 
             return response;
         } catch (error) {
+            // If it's a 4xx client error, don't retry, throw immediately.
+            if (error instanceof ApiError) {
+                throw error;
+            }
+
             if (attempt < retries) {
                 console.warn(`Attempt ${attempt + 1} failed. Retrying in ${retryDelay}ms...`, error);
                 await sleep(retryDelay);

@@ -97,7 +97,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 
 @app.get("/api/auth/me", response_model=UserResponse)
 def read_users_me(current_user: models.User = Depends(auth.get_current_user)):
-    return cu   rrent_user
+    return current_user
 
 # --- PROFILE ENDPOINTS ---
 

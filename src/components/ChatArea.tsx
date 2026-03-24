@@ -52,18 +52,14 @@ export function ChatArea() {
       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       if (SpeechRecognition) {
         const recognition = new SpeechRecognition();
-        recognition.continuous = true;
-        recognition.interimResults = true;
+        // Set continuous to false so it reliably captures one sentence and stops (like Google Web Search)
+        recognition.continuous = false;
+        recognition.interimResults = false;
         
         recognition.onresult = (event: any) => {
-          let currentTranscript = '';
-          for (let i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-              currentTranscript += event.results[i][0].transcript;
-            }
-          }
-          if (currentTranscript) {
-            setInput((prev) => prev + (prev.length > 0 && !prev.endsWith(' ') ? ' ' : '') + currentTranscript.trim());
+          if (event.results && event.results[0] && event.results[0][0]) {
+            const transcript = event.results[0][0].transcript;
+            setInput((prev) => prev + (prev.length > 0 && !prev.endsWith(' ') ? ' ' : '') + transcript.trim());
           }
         };
 

@@ -68,10 +68,10 @@ export function SearchSchemes() {
             const matchesSearch = s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 s.tag.toLowerCase().includes(searchTerm.toLowerCase());
 
-            // State/Region Filter
+            // State/Region Filter (Strict Mode)
             const matchesState = selectedState === "All India"
-                ? s.state === "Central"
-                : (s.state === "Central" || s.state === selectedState);
+                ? true
+                : s.state === selectedState;
 
             return matchesSearch && matchesState;
         }

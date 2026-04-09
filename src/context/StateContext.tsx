@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-type State = "All India" | "Telangana" | "Andhra Pradesh" | "Karnataka" | "Tamil Nadu" | "Maharashtra" | "Kerala";
+export type State = string;
 
 interface StateContextType {
     selectedState: State;

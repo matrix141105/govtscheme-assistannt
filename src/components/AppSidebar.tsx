@@ -13,7 +13,11 @@ interface AppSidebarProps {
 }
 
 const languages = ["English", "हिन्दी", "తెలుగు", "Bhojpuri"];
-const states = ["All India", "Telangana", "Andhra Pradesh", "Karnataka", "Tamil Nadu", "Maharashtra", "Kerala"];
+const states = [
+  "All India", "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh", "Delhi", "Gujarat", "Haryana",
+  "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Odisha",
+  "Punjab", "Rajasthan", "Tamil Nadu", "Telangana", "Uttar Pradesh", "West Bengal"
+];
 
 export function AppSidebar({ activeView, onViewChange }: AppSidebarProps) {
   const { user, isAuthenticated, logout } = useAuth();

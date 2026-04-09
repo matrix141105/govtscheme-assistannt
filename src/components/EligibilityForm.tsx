@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { useQuery } from "@tanstack/react-query";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface EligibilityFormProps {
   onBack: () => void;
@@ -25,6 +26,7 @@ interface ProfileData {
 }
 
 export function EligibilityForm({ onBack }: EligibilityFormProps) {
+  const { t } = useLanguage();
   const { token, isAuthenticated } = useAuth();
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<EligibleScheme[] | null>(null);
@@ -122,7 +124,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <ClipboardCheck className="w-5 h-5 text-primary" />
-        <h2 className="font-display font-bold text-foreground">Check Eligibility</h2>
+        <h2 className="font-display font-bold text-foreground">{t("Check Eligibility")}</h2>
       </header>
 
       <div className="flex-1 flex items-start justify-center p-8 overflow-y-auto">
@@ -132,7 +134,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <UserPlus className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Auto-fill from Profile</span>
+                <span className="text-sm font-medium">{t("Auto-fill from Profile")}</span>
               </div>
               <Select onValueChange={handleProfileSelect}>
                 <SelectTrigger className="w-[180px] h-9">
@@ -152,38 +154,38 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
           <div className="bg-card border border-border rounded-xl p-6 space-y-4 shadow-sm">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Age</label>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("Age")}</label>
                 <input
                   type="number"
                   name="age"
                   value={formData.age}
                   onChange={handleChange}
-                  placeholder="Enter your age"
+                  placeholder={t("Enter your age")}
                   className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-ring transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Annual Income (₹)</label>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("Annual Income")}</label>
                 <input
                   type="number"
                   name="income"
                   value={formData.income}
                   onChange={handleChange}
-                  placeholder="e.g. 250000"
+                  placeholder={t("Income placeholder")}
                   className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-ring transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Caste Category</label>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("Caste Category")}</label>
                 <select
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground text-sm outline-none focus:ring-2 focus:ring-ring transition"
                 >
-                  <option value="">Select category</option>
+                  <option value="">{t("Select category")}</option>
                   <option value="General">General</option>
                   <option value="OBC">OBC</option>
                   <option value="SC">SC</option>
@@ -192,13 +194,13 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Occupation</label>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("Occupation")}</label>
                 <input
                   type="text"
                   name="occupation"
                   value={formData.occupation}
                   onChange={handleChange}
-                  placeholder="e.g. Farmer, Student, Self-employed"
+                  placeholder={t("Occupation placeholder")}
                   className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground text-sm placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-ring transition"
                 />
               </div>
@@ -210,14 +212,14 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
               className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ClipboardCheck className="w-4 h-4" />}
-              {loading ? "Checking..." : "Check Eligibility"}
+              {loading ? t("Checking...") : t("Check Eligibility")}
             </button>
           </div>
 
           {/* Results Section */}
           {results !== null && (
             <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <h3 className="font-display font-bold text-lg">Eligibility Results</h3>
+              <h3 className="font-display font-bold text-lg">{t("Eligibility Results")}</h3>
 
               {results.length > 0 ? (
                 <div className="space-y-3">
@@ -234,7 +236,7 @@ export function EligibilityForm({ onBack }: EligibilityFormProps) {
               ) : (
                 <div className="p-6 rounded-xl border border-border bg-muted/50 text-center space-y-2">
                   <XCircle className="w-8 h-8 text-muted-foreground mx-auto opacity-50" />
-                  <p className="text-sm font-medium text-muted-foreground">No eligible schemes found based on your details.</p>
+                  <p className="text-sm font-medium text-muted-foreground">{t("No eligible schemes found")}</p>
                 </div>
               )}
             </div>

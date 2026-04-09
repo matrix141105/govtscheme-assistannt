@@ -11,6 +11,7 @@ import { User, LogOut, Plus, Trash2, Users, Globe } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ProfileData {
     id: number;
@@ -22,6 +23,7 @@ interface ProfileData {
 }
 
 export function Profile() {
+    const { t } = useLanguage();
     const { user, logout, isAuthenticated, token } = useAuth();
     const navigate = useNavigate();
     const queryClient = useQueryClient();
@@ -128,12 +130,12 @@ export function Profile() {
             <div className="max-w-4xl mx-auto space-y-8">
                 <header className="flex items-center justify-between">
                     <div className="space-y-1">
-                        <h1 className="text-3xl font-display font-bold">Account & Profiles</h1>
-                        <p className="text-muted-foreground">Manage your account and beneficiary profiles.</p>
+                        <h1 className="text-3xl font-display font-bold">{t("Account & Profiles")}</h1>
+                        <p className="text-muted-foreground">{t("Manage account subtitle")}</p>
                     </div>
                     <Button variant="outline" className="text-destructive hover:text-destructive" onClick={handleLogout}>
                         <LogOut className="w-4 h-4 mr-2" />
-                        Switch Account
+                        {t("Switch Account")}
                     </Button>
                 </header>
 
@@ -141,7 +143,7 @@ export function Profile() {
                     {/* User Info Card */}
                     <Card className="h-fit">
                         <CardHeader>
-                            <CardTitle>My Account</CardTitle>
+                            <CardTitle>{t("My Account")}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="flex flex-col items-center p-4 bg-muted/50 rounded-lg">
@@ -152,7 +154,7 @@ export function Profile() {
                                 <p className="text-sm text-muted-foreground">{user?.email}</p>
                             </div>
                             <div className="text-sm">
-                                <span className="text-muted-foreground">Language:</span> <span className="font-medium">{user?.language || "English"}</span>
+                                <span className="text-muted-foreground">{t("Language:")}</span> <span className="font-medium">{user?.language || "English"}</span>
                             </div>
                         </CardContent>
                     </Card>
@@ -162,27 +164,27 @@ export function Profile() {
                         <div className="flex items-center justify-between">
                             <h2 className="text-xl font-semibold flex items-center gap-2">
                                 <Users className="w-5 h-5" />
-                                Beneficiary Profiles
+                                {t("Beneficiary Profiles")}
                             </h2>
                             <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
                                 <DialogTrigger asChild>
                                     <Button size="sm">
                                         <Plus className="w-4 h-4 mr-2" />
-                                        Add Profile
+                                        {t("Add Profile")}
                                     </Button>
                                 </DialogTrigger>
                                 <DialogContent>
                                     <DialogHeader>
-                                        <DialogTitle>Add New Profile</DialogTitle>
-                                        <DialogDescription>Add details for a family member to check their eligibility easily.</DialogDescription>
+                                        <DialogTitle>{t("Add New Profile")}</DialogTitle>
+                                        <DialogDescription>{t("Add profile description")}</DialogDescription>
                                     </DialogHeader>
                                     <div className="grid gap-4 py-4">
                                         <div className="grid gap-2">
-                                            <Label>Name (e.g., Father, Sister)</Label>
+                                            <Label>{t("Profile Name Label")}</Label>
                                             <Input
                                                 value={newProfile.name}
                                                 onChange={(e) => setNewProfile({ ...newProfile, name: e.target.value })}
-                                                placeholder="Profile Name"
+                                                placeholder={t("Profile Name")}
                                             />
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
@@ -230,7 +232,7 @@ export function Profile() {
                                         </div>
                                     </div>
                                     <DialogFooter>
-                                        <Button onClick={handleAddProfile}>Save Profile</Button>
+                                        <Button onClick={handleAddProfile}>{t("Save Profile")}</Button>
                                     </DialogFooter>
                                 </DialogContent>
                             </Dialog>
@@ -242,8 +244,8 @@ export function Profile() {
                             <Card className="border-dashed">
                                 <CardContent className="flex flex-col items-center justify-center py-10 text-center space-y-2">
                                     <Users className="w-10 h-10 text-muted-foreground/50" />
-                                    <p className="font-medium text-muted-foreground">No profiles added yet.</p>
-                                    <p className="text-sm text-muted-foreground">Add family members to check schemes for them.</p>
+                                    <p className="font-medium text-muted-foreground">{t("No profiles added yet.")}</p>
+                                    <p className="text-sm text-muted-foreground">{t("Add family description")}</p>
                                 </CardContent>
                             </Card>
                         ) : (

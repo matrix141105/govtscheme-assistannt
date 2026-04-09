@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\HI\Desktop\govscheme-assistant-main\govscheme-assistant-main\get_err.py", line 4, in <module>
+    compile(f.read(), "backend/main.py", "exec")
+  File "backend/main.py", line 100
+    return cu   rrent_user
+           ^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
